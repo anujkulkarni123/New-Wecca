@@ -1,0 +1,34 @@
+
+  mat-card-title {
+    text-align: center;
+
+  }
+  mat-card-subtitle {
+    text-align: center;
+
+  }
+  
+  img {
+    border-radius: 8px;
+    height: 210px;
+    width: 170px;
+  }
+  .center1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  mat-card {
+    width: calc(100% - 70px);
+    height: calc(100% - 70px);
+  }
+
+

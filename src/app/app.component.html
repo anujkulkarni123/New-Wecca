@@ -1,0 +1,14 @@
+<mat-toolbar>
+  <a mat-button [routerLink] = "''"> Western Engineering Concrete Canoe Association </a>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+
+  <div>
+    <a mat-button [routerLink]="'calendar'"> Calendar </a>
+    <a mat-button [routerLink]="'executives'"> Executives </a>
+    <a mat-button [routerLink]="'sponsorship'"> Sponsors </a>
+  </div>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
