@@ -6,10 +6,9 @@
   mat-card-subtitle {
     text-align: center;
 
-  }
-  
+  }  
   img {
-    border-radius: 8px;
+    border-radius: 50%;
     height: 210px;
     width: 170px;
   }
@@ -28,7 +27,14 @@
 
   mat-card {
     width: calc(100% - 70px);
-    height: calc(100% - 70px);
+    height: calc(100% - 100px);
+    color: black;
+  }
+
+  .mat-card {
+    padding: 0px;
+    background-color: whitesmoke;
+
   }
 
 
