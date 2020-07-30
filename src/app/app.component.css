@@ -7,5 +7,32 @@
 
   mat-toolbar { background-color: rgb(138, 43, 226); }
 
-  
+footer {
+     background-color: rgb(138, 43, 226); ;
+   }
+
+.fa-instagram {
+   background: #125688;
+   color: white;
+   padding: 20px;
+   font-size: 30px;
+   width: 30px;
+   text-align: center;
+   text-decoration: none;
+   border-radius: 50%;
+} 
+.fa-facebook   {
+   background: #3B5998;
+   color: white;
+   padding: 20px;
+   font-size: 30px;
+   width: 30px;
+   text-align: center;
+   text-decoration: none;
+   border-radius: 50%;
+}
+.ul {
+   
+}
+
 
