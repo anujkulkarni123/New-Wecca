@@ -1,4 +1,2 @@
 # Wecca Updates
-This project has been taken over by Anuj Kulkarni and Ethan Brodnar.
-
-
+This project has been taken over by Anuj Kulkarni and Ethan Bodnar
