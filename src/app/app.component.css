@@ -5,11 +5,15 @@
 
   }
 
-  mat-toolbar { background-color: rgb(138, 43, 226); }
+  mat-toolbar { background-color: rgb(121, 69, 189); }
 
 footer {
-     background-color: rgb(138, 43, 226); ;
-   }
+     background-color: rgb(121, 69, 189); ;
+       }
+
+   mat-toolbar { color: white; }
+
+  
 
 .fa-instagram {
    background: #125688;
@@ -31,8 +35,6 @@ footer {
    text-decoration: none;
    border-radius: 50%;
 }
-.ul {
-   
-}
+
 
 
