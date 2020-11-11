@@ -5,8 +5,6 @@
 
   }
 
-  mat-toolbar { background-color: rgb(121, 69, 189); }
-
 footer {
       background-color: rgb(121, 69, 189);
       position: fixed;
@@ -16,9 +14,7 @@ footer {
       padding-left: 180px;
        }
 
-mat-toolbar { color: white; }
 
-  
 
 .fa-instagram {
    background: #125688;
@@ -52,7 +48,7 @@ body {
    z-index: 1;
    top: 0;
    left: 0;
-   background-color: #111;
+   background-color:rgb(121, 69, 189);
    overflow-x: hidden;
    padding-top: 20px;
  }
@@ -70,7 +66,7 @@ body {
  }
  
  .main {
-   margin-left: 160px; /* Same as the width of the sidenav */
+   margin-left: 180px; /* Same as the width of the sidenav */
    font-size: 28px; /* Increased text to enable scrolling */
    padding: 0px 10px;
  }
