@@ -53,11 +53,15 @@
 
   .gallery {
     display: grid;
-    gap: 35px 13%;
+    margin-left: 0px;
+    margin-right:0px;
+    row-gap: 10vmin;
+    column-gap: calc(20vmin);
     text-align: middle;
     align-items: middle;
-    grid-template-columns: 250px 250px 250px;
-    grid-template-rows: 400px 400px 400px;
+    width: calc(100vw - 190px);
+    grid-template-columns: 30vmin 30vmin 30vmin;
+    grid-template-rows: 400px 400px 400px 400px 400px 400px;
     justify-content: left;
     justify-items: space-evenly;
     align-content: space-evenly;
@@ -67,11 +71,11 @@
     width: 200%;
     height: 100%;
     object-fit: cover;
-    text-align: middle;
-    justify-content: left;
+    text-align: center;
+    justify-content: center;
     border: 1px solid rgb(138, 43, 226);
+    float: left;
   }
-
   
   .text-image {
     font-size: 60%;
@@ -89,6 +93,7 @@
     font-weight: bold;
     display: block;
     text-align: center;
+    padding-top: 10px;
     margin-left: auto;
     margin-right: auto;
     float: left;
