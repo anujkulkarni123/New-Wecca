@@ -15,10 +15,10 @@
       <div class="name-image" id="will-name"> 
         Will Stevenson
       </div>
-      <div class="text-image" id="will-info">
+      <div onclick="swapText()" class="text-image" id="will-info">
         Construction Captain <br> wecca.construction@gmail.com
       </div>
-      <p id="will-info"></p>
+      <p id="will-info1"></p>
     </figure>
     <figure class="gallery__item">
       <img src="assets/execphotos/megan.jpg" alt="photo of megan" class="gallery__img">
@@ -165,6 +165,33 @@
       </div>
     </figure>
   </div>  
+
+
+  <br>
+  <br>
+  <br>
+  <hr style = "width:70%; height: 1px; color:rgb(138, 43, 226); background-color: rgb(138, 43, 226);">
+  <h1 class="titles">Get Involved!</h1>
+  <p class="para">Join our mailing list to learn more about the team, be reminded <br> when executive applications are released, and more!</p>
+  <br>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfAhUEsZXuzODvFPsFJ_TORCHdrVK9Aj5osvyYXLS38__DvZQ/viewform?embedded=true" width="640" height="500" frameborder="0" marginheight="0" marginwidth="0" class="center1">Loading…</iframe>
+
+
+  <script>
+    function swapText()
+    {
+      var trimmed = document.getElementById("will-info").innerHTML.split(" ")[0].trim(); 
+
+      if(trimmed === "Construction"){
+        document.getElementById("will-info").innerHTML = "Description";
+      }
+      else{
+        document.getElementById("will-info").innerHTML = "Construction Captain <br> wecca.construction@gmail.com"
+      }
+    }
+  </script>
+
+
 
   <!--
 <mat-grid-list cols="3" rowHeight="1:1">
