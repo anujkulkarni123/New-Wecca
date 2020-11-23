@@ -12,6 +12,7 @@
     height: 210px;
     width: 170px;
   }
+  
   .align {
     display: block;
     text-align: center;
@@ -25,6 +26,7 @@
     margin-left: 20px;
     margin-right: 20px;
     width: 95%;
+    padding-bottom: 0;
   }
   .center1 {
     display: block;

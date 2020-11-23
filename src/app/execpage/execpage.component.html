@@ -7,45 +7,49 @@
     canoes from across the country are showcased and raced. 
   </p>
   <hr style = "width:70%; height: 1px; color:rgb(138, 43, 226); background-color: rgb(138, 43, 226);">
-  <h1 class=titles>Meet the Team</h1>
+  <h1 class="titles">Meet the Team</h1>
+  <div class="titles" style="font-size: 3vmin; padding-top: -75px">Click us to find out more!</div>
 
   <div class="gallery" >
     <figure class="gallery__item" id="will">
-      <img src="assets/execphotos/will.png" alt="photo of will" class="gallery__img" id="will-img">
+      <img src="assets/execphotos/will.png" alt="photo of will" class="gallery__img" id="will-img" onclick="document.getElementById('will-info1').innerHTML='Description Here!';">
       <div class="name-image" id="will-name"> 
         Will Stevenson
       </div>
-      <div onclick="swapText()" class="text-image" id="will-info">
+      <a class="text-image" id="will-info">
         Construction Captain <br> wecca.construction@gmail.com
-      </div>
-      <p id="will-info1"></p>
+      </a>
+      <a id="will-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/megan.jpg" alt="photo of megan" class="gallery__img">
+      <img src="assets/execphotos/megan.jpg" alt="photo of megan" class="gallery__img" onclick="document.getElementById('megan-info1').innerHTML='Description Here!';">
       <div class="name-image"> 
         Megan Ginham 
       </div>
       <div class="text-image">
         Logistics Captain <br> wecca.logistics@gmail.com
       </div>
+      <a id="megan-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/sneha.jpg" alt="photo of sneha" class="gallery__img">
+      <img src="assets/execphotos/sneha.jpg" alt="photo of sneha" class="gallery__img" onclick="document.getElementById('sneha-info1').innerHTML='Description Here!';">
       <div class="name-image"> 
         Sneha Patel
       </div>
       <div class="text-image">
         Finance Captain <br> wecca.sponsorship@gmail.com
       </div>
+      <a id="sneha-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/anuj.png" alt="photo of anuj" class="gallery__img">
+      <img src="assets/execphotos/anuj.png" alt="photo of anuj" class="gallery__img" (click)='changeText($event, anuj)'>
       <div class="name-image"> 
         Anuj Kulkarni
       </div>
-      <div class="text-image">
+      <a class="text-image">
         Co-head of Software Development
-      </div>
+      </a>
+      <a id="anuj-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
       <img src="assets/execphotos/ethan.png" alt="photo of ethan" class="gallery__img">
@@ -55,6 +59,7 @@
       <div class="text-image">
         Co-head of Software Development
       </div>
+      <a id="ethan-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
       <img src="assets/execphotos/andrew.jpg" alt="photo of andrew" class="gallery__img">
@@ -64,6 +69,7 @@
       <div class="text-image">
         Co-head of Materials
       </div>
+      <a id="andrew-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
       <img src="assets/execphotos/anthony.png" alt="photo of tony" class="gallery__img">
