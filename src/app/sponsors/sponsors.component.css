@@ -1,34 +1,29 @@
 body.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
-    font-family: Arial;
-  }
-  
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+} 
   /* The grid: Four equal columns that floats next to each other */
   .column {
     float: left;
     width: 20%;
-    padding: 10px;
+    padding: 5px;
   }
   
   /* Style the images inside the grid */
   .column img {
     opacity: 0.8; 
     cursor: pointer; 
-  }
-  
-  img {
-      object-fit: fit;
   }
   
   .column img:hover {
@@ -67,3 +62,31 @@ body.center {
     font-size: 35px;
     cursor: pointer;
   }
+
+  #purple{
+    color: purple;
+  }
+
+  #bronze{
+    color: #b08d57;
+  }
+
+  #silver{
+    color: #C0C0C0; 
+  }
+
+  #gold{
+    color: goldenrod;
+  }
+
+  .gap-20{
+    width: 100%;
+    height: 300px;
+    }
+
+    .gap-10{
+      width: 100%;
+      height: 20px;
+      }
+  
+  
