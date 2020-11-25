@@ -7,22 +7,23 @@
     canoes from across the country are showcased and raced. 
   </p>
   <hr style = "width:70%; height: 1px; color:rgb(138, 43, 226); background-color: rgb(138, 43, 226);">
-  <h1 class="titles">Meet the Team</h1>
-  <div class="titles" style="font-size: 3vmin; padding-top: -75px">Click us to find out more!</div>
+  <!-- <a routerLink="#mailing">Get Involved</a> -->
+  <a class="titles" style="font-weight: bold; font-size: 5vmin;">Meet the Team</a>
+  <div class="titles" style="font-size: 2.5vmin; padding-top: -75px">Click us to find out more!</div>
 
-  <div class="gallery" >
+  <div class="gallery">
     <figure class="gallery__item" id="will">
-      <img src="assets/execphotos/will.png" alt="photo of will" class="gallery__img" id="will-img" onclick="document.getElementById('will-info1').innerHTML='Description Here!';">
-      <div class="name-image" id="will-name"> 
+      <img src="assets/execphotos/will.png" alt="photo of will" class="gallery__img" id="will-img" (click)='changeText($event, "will", "will-info1")'>
+      <div class="name-image"> 
         Will Stevenson
       </div>
-      <a class="text-image" id="will-info">
+      <a class="text-image">
         Construction Captain <br> wecca.construction@gmail.com
       </a>
       <a id="will-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/megan.jpg" alt="photo of megan" class="gallery__img" onclick="document.getElementById('megan-info1').innerHTML='Description Here!';">
+      <img src="assets/execphotos/megan.jpg" alt="photo of megan" class="gallery__img" (click)='changeText($event, "megan", "megan-info1")'>
       <div class="name-image"> 
         Megan Ginham 
       </div>
@@ -32,7 +33,7 @@
       <a id="megan-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/sneha.jpg" alt="photo of sneha" class="gallery__img" onclick="document.getElementById('sneha-info1').innerHTML='Description Here!';">
+      <img src="assets/execphotos/sneha.jpg" alt="photo of sneha" class="gallery__img" (click)='changeText($event, "sneha", "sneha-info1")'>
       <div class="name-image"> 
         Sneha Patel
       </div>
@@ -42,7 +43,7 @@
       <a id="sneha-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/anuj.png" alt="photo of anuj" class="gallery__img" (click)='changeText($event, anuj)'>
+      <img src="assets/execphotos/anuj.png" alt="photo of anuj" class="gallery__img" (click)='changeText($event, "anuj", "anuj-info1")'>
       <div class="name-image"> 
         Anuj Kulkarni
       </div>
@@ -52,7 +53,7 @@
       <a id="anuj-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/ethan.png" alt="photo of ethan" class="gallery__img">
+      <img src="assets/execphotos/ethan.png" alt="photo of ethan" class="gallery__img" (click)='changeText($event, "ethan", "ethan-info1")'>
       <div class="name-image"> 
         Ethan Bodnar
       </div>
@@ -62,7 +63,7 @@
       <a id="ethan-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/andrew.jpg" alt="photo of andrew" class="gallery__img">
+      <img src="assets/execphotos/andrew.jpg" alt="photo of andrew" class="gallery__img" (click)='changeText($event, "andrew", "andrew-info1")'>
       <div class="name-image"> 
         Andrew Markham
       </div>
@@ -72,103 +73,114 @@
       <a id="andrew-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/anthony.png" alt="photo of tony" class="gallery__img">
+      <img src="assets/execphotos/anthony.png" alt="photo of tony" class="gallery__img" (click)='changeText($event, "tony", "tony-info1")'>
       <div class="name-image"> 
         Anthony De Rango
       </div>
       <div class="text-image">
         Co-head of Materials
       </div>
+      <a id="tony-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/lauren.jpg" alt="photo of lauren" class="gallery__img">
+      <img src="assets/execphotos/lauren.jpg" alt="photo of lauren" class="gallery__img" (click)='changeText($event, "lauren", "lauren-info1")'>
       <div class="name-image"> 
         Lauren Andersen
       </div>
       <div class="text-image">
         Co-head of Mould
       </div>
+      <a id="lauren-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/keston.png" alt="photo of keston" class="gallery__img">
+      <img src="assets/execphotos/keston.png" alt="photo of keston" class="gallery__img" (click)='changeText($event, "keston", "keston-info1")'>
       <div class="name-image"> 
         Keston Anderson
       </div>
       <div class="text-image">
         Co-head of Mould
       </div>
+      <a id="keston-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/liam.jpg" alt="photo of lieam" class="gallery__img">
+      <img src="assets/execphotos/liam.jpg" alt="photo of lieam" class="gallery__img" (click)='changeText($event, "liam", "liam-info1")'>
       <div class="name-image"> 
         Liam Israels
       </div>
       <div class="text-image">
         Co-head of Design and Analysis
       </div>
+      <a id="liam-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/rawad.jpg" alt="photo of jennifer" class="gallery__img">
+      <img src="assets/execphotos/jen.jpg" alt="photo of jennifer" class="gallery__img" (click)='changeText($event, "jen", "jen-info1")'>
       <div class="name-image"> 
         Jennifer Oliva
       </div>
       <div class="text-image">
         Co-head of Design and Analysis
       </div>
+      <a id="jen-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/trevor.png" alt="photo of trevor" class="gallery__img">
+      <img src="assets/execphotos/trevor.png" alt="photo of trevor" class="gallery__img" (click)='changeText($event, "trevor", "trevor-info1")'>
       <div class="name-image"> 
         Trevor Stone
       </div>
       <div class="text-image">
         Co-head of Research and Development
       </div>
+      <a id="trevor-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/jericho.png" alt="photo of jericho" class="gallery__img">
+      <img src="assets/execphotos/jericho.png" alt="photo of jericho" class="gallery__img" (click)='changeText($event, "jericho", "jericho-info1")'>
       <div class="name-image"> 
         Jericho Salvador
       </div>
       <div class="text-image">
         Co-head of Research and Development
       </div>
+      <a id="jericho-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/kara.png" alt="photo of kara" class="gallery__img">
+      <img src="assets/execphotos/kara.png" alt="photo of kara" class="gallery__img" (click)='changeText($event, "kara", "kara-info1")'>
       <div class="name-image"> 
         Kara Bjornson
       </div>
       <div class="text-image">
         Head of Technical Writing
       </div>
+      <a id="kara-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/sierra.jpg" alt="photo of sierra" class="gallery__img">
+      <img src="assets/execphotos/sierra.jpg" alt="photo of sierra" class="gallery__img" (click)='changeText($event, "sierra", "sierra-info1")'>
       <div class="name-image"> 
         Sierra Goss
       </div>
       <div class="text-image">
         Head of Technical Presentation
       </div>
+      <a id="sierra-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/sam.png" alt="photo of sam" class="gallery__img">
+      <img src="assets/execphotos/sam.png" alt="photo of sam" class="gallery__img" (click)='changeText($event, "sam", "sam-info1")'>
       <div class="name-image"> 
         Sam Goertz
       </div>
       <div class="text-image">
         Training Coordinator
       </div>
+      <a id="sam-info1" class="text-image"></a>
     </figure>
     <figure class="gallery__item">
-      <img src="assets/execphotos/mac.png" alt="photo of mac" class="gallery__img">
+      <img src="assets/execphotos/mac.png" alt="photo of mac" class="gallery__img" (click)='changeText($event, "mac", "mac-info1")'>
       <div class="name-image"> 
         Mac McGauley
       </div>
       <div class="text-image">
         Head of Graphic Design
       </div>
+      <a id="mac-info1" class="text-image"></a>
     </figure>
   </div>  
 
@@ -177,25 +189,11 @@
   <br>
   <br>
   <hr style = "width:70%; height: 1px; color:rgb(138, 43, 226); background-color: rgb(138, 43, 226);">
-  <h1 class="titles">Get Involved!</h1>
+  <a id="mailing" name = "mailing" class="titles" style="font-weight: bold; font-size: 5vmin;">Get Involved!</a>
   <p class="para">Join our mailing list to learn more about the team, be reminded <br> when executive applications are released, and more!</p>
   <br>
   <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfAhUEsZXuzODvFPsFJ_TORCHdrVK9Aj5osvyYXLS38__DvZQ/viewform?embedded=true" width="640" height="500" frameborder="0" marginheight="0" marginwidth="0" class="center1">Loading…</iframe>
 
-
-  <script>
-    function swapText()
-    {
-      var trimmed = document.getElementById("will-info").innerHTML.split(" ")[0].trim(); 
-
-      if(trimmed === "Construction"){
-        document.getElementById("will-info").innerHTML = "Description";
-      }
-      else{
-        document.getElementById("will-info").innerHTML = "Construction Captain <br> wecca.construction@gmail.com"
-      }
-    }
-  </script>
 
 
 
