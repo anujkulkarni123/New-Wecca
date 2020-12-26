@@ -76,38 +76,4 @@ export class ExecpageComponent implements OnInit {
     document.getElementById(id).innerHTML = text;
   }
 
-  resetText(id){
-    document.getElementById(id).innerHTML = '';
-  }
 }
-
-/* WIP:
-
-changeText(event, name){
-    if(name == "anuj"){
-      if(document.getElementById('anuj-info1').innerHTML == ''){
-        document.getElementById('anuj-info1').innerHTML = "Here is Anuj's description from TS! <br> Need to work on different messages <br> for different people!";
-      } 
-      else {
-        document.getElementById('anuj-info1').innerHTML = '';
-      }
-    }
-    if(name == "ethan"){
-      if(document.getElementById('ethan-info1').innerHTML == ''){
-        document.getElementById('ethan-info1').innerHTML = "Here is Ethan's description from TS! <br> Need to work on different messages <br> for different people!";
-      } 
-      else {
-        document.getElementById('ethan-info1').innerHTML = '';
-      }
-    }
-    if(name == "andrew"){
-      if(document.getElementById('andrew-info1').innerHTML == ''){
-        document.getElementById('andrew-info1').innerHTML = "Here is Andrew's description from TS! <br> Need to work on different messages <br> for different people!";
-      } 
-      else {
-        document.getElementById('andrew-info1').innerHTML = '';
-      }
-    }
-  }
-
-*/
