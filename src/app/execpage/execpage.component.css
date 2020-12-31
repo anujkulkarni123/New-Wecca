@@ -12,7 +12,18 @@
     height: 210px;
     width: 170px;
   }
-  
+  p{
+    text-align: center;
+    font-size: 3vmin;
+    margin-top: 0vmin;
+    margin-bottom: 0vmin;
+  }
+  hr{
+    width:70%;
+    height: 1px;
+    color:rgb(138, 43, 226); 
+    background-color: rgb(138, 43, 226);
+  }
   .align {
     display: block;
     text-align: center;
@@ -25,6 +36,8 @@
     text-align: center;
     justify-content: center;
     margin: 0 auto;
+    font-weight: bold;
+    font-size: 5vmin;
   }
   .center1 {
     display: block;
@@ -57,11 +70,9 @@
     margin-left: -22.5vmin;
     row-gap: 10vmin;
     column-gap: 20vmin;
-    
     grid-template-columns: 30vmin 30vmin 30vmin;
     grid-template-rows: 50vmin 50vmin 50vmin 50vmin 50vmin 50vmin;
     justify-content: center;
-    
     align-content: space-evenly;
   }
 
@@ -76,7 +87,7 @@
   }
   
   .text-image {
-    font-size: 60%;
+    font-size: 18px;
     display: block;
     text-align: center;
     margin-left: auto;
@@ -87,7 +98,7 @@
   }
 
   .name-image {
-    font-size: 60%;
+    font-size: 20px;
     font-weight: bold;
     display: block;
     text-align: center;

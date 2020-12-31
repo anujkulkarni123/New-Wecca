@@ -9,26 +9,55 @@ button {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    font-family: 'Montserrat';
 }
-h3{
-    
+h2{
     border: none;
     color: black;
-    padding: 15px 32px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    font-size: 40px;
     margin: 4px 2px;
-    font-family: 'Montserrat';
-    
+}
+p{
+    text-align: center;
+    font-size: 3vmin;
+    margin-top: 1vmin;
+    margin-bottom: 0vmin;
+}
+li{
+    font-size: 3vmin;
+    margin-top: 0vmin;
+    margin-bottom: 2vmin;
+}
+ul{
+    display: inline;
+    text-align: center;
+    margin-top: -1vmin; 
+    margin-bottom: -1vmin;
+}
+.titles {
+    display: block;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 0vmin;
+    font-weight: bold;
+    font-size: 5vmin;
+  }
+hr{
+    width:70%;
+    height: 1px;
+    color:rgb(138, 43, 226); 
+    background-color: rgb(138, 43, 226);
+    margin-top: 5vmin;
+    margin-bottom: 5vmin;
 }
 body{
-    background-image: url(../../assets/images/weccamainpage.jpg);
+    background-image: url(../../assets/images/wecca-canoe-photo.jpg);
     background-attachment: fixed;
-    background-size: 100% 100%;
+    background-size: 100% 50%;
     background-position: 0% 0%;
     opacity: 0.9;
     filter: alpha(opacity=90);
+    margin-left: 0 auto;
+    margin-right: 0 auto;
 }

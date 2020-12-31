@@ -62,7 +62,7 @@ export class ExecpageComponent implements OnInit {
       text = "Insert Kara's Description";
     }
     else if(name == 'sierra' && info == ''){
-      text = "Indert Sierra's Description";
+      text = "Insert Sierra's Description";
     }
     else if(name == 'sam' && info == ''){
       text = "Insert Sam's Description";
