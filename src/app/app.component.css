@@ -18,10 +18,10 @@ footer {
 
 .fa-instagram {
    background: #125688;
-   color: white;
+   color: rgb(255, 255, 255);
    padding: 20px;
    font-size: 30px;
-   width: 30px;
+   width:15px;
    text-align: center;
    text-decoration: none;
    border-radius: 50%;
@@ -31,7 +31,7 @@ footer {
    color: white;
    padding: 20px;
    font-size: 30px;
-   width: 30px;
+   width: 15px;
    text-align: center;
    text-decoration: none;
    border-radius: 50%;
@@ -51,6 +51,9 @@ body {
    background-color:rgb(121, 69, 189);
    overflow-x: hidden;
    padding-top: 20px;
+   border-radius: 25px;
+   border: 2px solid black;
+
  }
  
  .sidenav a {
