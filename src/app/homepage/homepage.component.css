@@ -1,7 +1,8 @@
 button {
     background-color: #ffffff;
-    border: none;
-    color: black;
+    border-color: rgb(138, 43, 226);
+    border-radius:14px;
+    color:  rgb(138, 43, 226);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -19,7 +20,7 @@ h2{
 }
 p{
     text-align: center;
-    font-size: 3vmin;
+    font-size: 2.5vmin;
     margin-top: 1vmin;
     margin-bottom: 0vmin;
 }
@@ -33,6 +34,18 @@ ul{
     text-align: center;
     margin-top: -1vmin; 
     margin-bottom: -1vmin;
+} 
+.center {
+    display: block;
+    margin-left: 50%;
+    margin-right:50%;
+}
+.wecca-members{
+    display: block;
+    width: 600px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .titles {
     display: block;
