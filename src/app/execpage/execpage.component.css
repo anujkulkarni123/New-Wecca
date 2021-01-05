@@ -14,9 +14,12 @@
   }
   p{
     text-align: center;
-    font-size: 3vmin;
+    font-size: 2vmin;
     margin-top: 0vmin;
     margin-bottom: 0vmin;
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
   hr{
     width:70%;
@@ -116,6 +119,7 @@
     justify-content: center;
     margin: auto;
   }
+
 
   /*
   div.img {

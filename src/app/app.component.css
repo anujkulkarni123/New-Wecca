@@ -9,8 +9,8 @@
 .fa-instagram {
    background: #125688;
    color: rgb(255, 255, 255);
-   padding: 20px;
-   font-size: 30px;
+   padding: 10px;
+   font-size: 20px;
    width:15px;
    text-align: center;
    text-decoration: none;
@@ -19,8 +19,8 @@
 .fa-facebook   {
    background: #3B5998;
    color: white;
-   padding: 20px;
-   font-size: 30px;
+   padding: 10px;
+   font-size: 20px;
    width: 15px;
    text-align: center;
    text-decoration: none;
@@ -31,7 +31,7 @@ body {
    font-family: "Lato", sans-serif;
  }
  
- .sidenav {
+ /*.sidenav {
    height: 100%;
    width: 180px;
    position: fixed;
@@ -56,13 +56,70 @@ body {
  
  .sidenav a:hover {
    color: #f1f1f1;
+ }*/
+
+ .main {
+  /* margin-left: 180px;  Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+  width: 60%;
+  margin: auto;
+}
+
+ .container{
+   width: 80%;
+   margin: 0 auto;
+
+ }
+
+ header{
+  background: rgb(121, 69, 189);
+ }
+
+ header::after {
+   content : '';
+   display: table;
+   clear: both;
  }
  
- .main {
-   margin-left: 180px; /* Same as the width of the sidenav */
-   font-size: 28px; /* Increased text to enable scrolling */
-   padding: 0px 10px;
+ .logo-black{
+   float: left;
+   max-width: 6%;
+   height: auto;
+   padding-left: 100px;
+   padding-top: 9px;
+   padding-bottom : 10px;
  }
+
+ nav{
+  float: right;
+}
+
+nav ul {
+  margin : 0;
+  padding : 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 20px;
+
+  position: relative;
+}
+ 
+nav a {
+  color:black;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a:hover{
+  color: white;
+
+}
  
  @media screen and (max-height: 450px) {
    .sidenav {padding-top: 15px;}
