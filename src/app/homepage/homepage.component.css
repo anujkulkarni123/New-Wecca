@@ -19,9 +19,13 @@ h2{
 }
 p{
     text-align: center;
-    font-size: 3vmin;
-    margin-top: 1vmin;
+    font-size: 2vmin;
+    margin-top: 2vmin;
     margin-bottom: 0vmin;
+    padding: 35px;
+    padding-left: 200px;
+    padding-right: 200px;
+
 }
 li{
     font-size: 3vmin;
@@ -54,8 +58,9 @@ hr{
 body{
     background-image: url(../../assets/images/wecca-canoe-photo.jpg);
     background-attachment: fixed;
+    background-position: center;
     background-size: 100% 50%;
-    background-position: 0% 0%;
+    background-position: 0% 0%; 
     opacity: 0.9;
     filter: alpha(opacity=90);
     margin-left: 0 auto;
