@@ -13,6 +13,8 @@ export class ExecpageComponent implements OnInit {
 
   constructor() { }
 
+  //we could use a dictionary here
+
   ngOnInit() {
   }
 
