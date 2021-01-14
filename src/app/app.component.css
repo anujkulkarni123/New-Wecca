@@ -61,16 +61,12 @@ body {
  .main {
   /* margin-left: 180px;  Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-  width: 60%;
+  padding: 0px 0px;
+  width: 100%;
   margin: auto;
 }
 
- .container{
-   width: 80%;
-   margin: 0 auto;
-
- }
+ 
 
  header{
   background: rgb(121, 69, 189);
@@ -120,6 +116,7 @@ nav a:hover{
   color: white;
 
 }
+
  
  @media screen and (max-height: 450px) {
    .sidenav {padding-top: 15px;}

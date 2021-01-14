@@ -1,4 +1,126 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/*Shirley*/
+html{
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #F5F0F6;
+    font-family: "Raleway", sans-serif;
+}
+
+
+@media (max-width: 979px) {
+    body {
+        padding-top: 0px;
+        padding: 0px;
+    }
+}
+
+#title{
+    color: #502382;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 75px;
+    text-align: center;
+    padding-top: 25%;
+}
+
+.center-sub{
+    text-align: center;
+}
+
+
+#sub{
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    font-size: 35px;
+    color: black;
+    padding-bottom: 5%;
+}
+
+.description {
+    font-family: "Raleway", sans-serif;
+    text-align: left;
+    font-size: 20px;
+    color: black;
+    padding-bottom: 5%;
+}
+
+.accent {
+    font-family: "Open Sans", sans-serif;
+    color: #502382;
+}
+
+.accent2{
+    font-family: "Raleway", sans-serif;
+    color: #502382;
+}
+
+/* Captions under lightboxes*/
+a{
+    text-decoration: none;
+}
+
+a:link, a:visited {
+    color: black;
+}
+
+a:hover{
+    color: #502382;
+    font-weight: 600;
+    text-decoration: none;
+}
+    
+
+figcaption{
+    text-align: center;
+    padding-top: 10px;
+    font-family: "Oxygen" ;
+}
+
+.padding, .center-sub{
+    padding-top: 5%;
+}
+
+/* Font-Family: 'Raleway', Sans-Serif;
+Font-Size: 44px;
+Font-Family: 'Open Sans', Sans-Serif;
+Font-Size: 15px;*/
+
+/*Font-Family: 'Oxygen', Sans-Serif;
+Font-Size: 46px;
+Font-Family: 'Noto Serif', Serif;
+Font-Size: 16px;
+*/
+
+.nav-item{
+    Font-Family: 'Raleway', Sans-Serif;
+}
+
+#home-screen {
+    height: 100vh;
+    background: url(assets/images/landingimage.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center ;   
+}
+
+#about-panel {
+    padding-top: 60px;
+}
+
+iframe {
+    display: block;
+    border-style:none;
+}
+
+.center-iframe{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+

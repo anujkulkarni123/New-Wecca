@@ -17,9 +17,8 @@ h2{
     border: none;
     color: black;
     text-align: center;
-    font-size: 40px;
-    margin: 4px 2px;
 }
+
 p{
     text-align: center;
     font-size: 2.5vmin;
@@ -65,14 +64,5 @@ hr{
     margin-top: 5vmin;
     margin-bottom: 5vmin;
 }
-body{
-    background-image: url(../../assets/images/wecca-canoe-photo.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-size: 100% 50%;
-    background-position: 0% 0%; 
-    opacity: 0.9;
-    filter: alpha(opacity=90);
-    margin-left: 0 auto;
-    margin-right: 0 auto;
-}
+
+

@@ -1,24 +1,26 @@
 <header>
   <div class="container">
     <!--changed to top bar-->
-    <img src="assets/images/wecca-logo-black.png" alt="logo-black" class="logo-black">
+    <nav class="navbar navbar-light navbar-expand-md fixed-top bg-light">
+      <div class = "container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a href="#landing" class="navbar-brand"><img src="assets/images/nav-logo.png" alt="WECCA" width="50"></a>
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="navbar-toggler-icon"></i>
+          </button>  
 
-    <nav>
-      <ul class="list-unstyled">
-        <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <li><a mat-button [routerLink]="''"> Wecca </a></li>
-        <li><a mat-button [routerLink]="'calendar'"> Calendar</a></li>
-        <li><a mat-button [routerLink]="'executives'"> Executives</a></li>
-        <li><a mat-button [routerLink]="'sponsorship'"> Sponsors </a></li>
-        
-        <li>
-          <a href="https://www.instagram.com/wecca.uwo/" class="fa fa-instagram"></a>
-        </li>
-        <li>
-          <a href="https://www.facebook.com/wecca.uwo/" class="fa fa-facebook"></a>
-      </ul>
-    </nav>
+          <!-- collapse navbar -->
+          <div class="navbar-collapse collapse" id="navbarCollapse">
+              <ul class="navbar-nav mr-auto w-100 clearfix">
+                  <!--scroll down to page within site-->
+                  <li class="nav-item"><a class="nav-link" href="#events" target="_blank">EVENTS</a></li> 
+                  <li class="nav-item"><a class="nav-link" href="#meet-team">EXECUTIVES</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#spon">SPONSORS</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#contact">CONTACT US</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
 
   </div>
 </header>

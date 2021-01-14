@@ -27,7 +27,9 @@
               {
                 "input":"src/theme.scss"
               },
-                "src/styles.css"
+                "src/styles.css",
+                "../New-Wecca/node_modules/aos/dist/aos.css",
+                "../New-Wecca/node_modules/ekko-lightbox/dist/ekko-lightbox.css"
             
             ],
             "scripts": []
