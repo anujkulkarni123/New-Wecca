@@ -24,13 +24,13 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/angular-calendar/css/angular-calendar.css",
               {
-                "input":"src/theme.scss"
+                "input": "src/theme.scss"
               },
-                "src/styles.css",
-                "../New-Wecca/node_modules/aos/dist/aos.css",
-                "../New-Wecca/node_modules/ekko-lightbox/dist/ekko-lightbox.css"
-            
+              "src/styles.css",
+              "../New-Wecca/node_modules/aos/dist/aos.css",
+              "../New-Wecca/node_modules/ekko-lightbox/dist/ekko-lightbox.css"
             ],
             "scripts": []
           },
@@ -95,6 +95,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/angular-calendar/css/angular-calendar.css",
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
