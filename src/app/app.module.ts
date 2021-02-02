@@ -15,8 +15,7 @@ import {MatCardModule, MatCard} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-
-
+import { NgbAlertModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -34,6 +33,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    NgbPaginationModule, 
+    NgbAlertModule,
     MatButtonModule,
     MatIconModule,
     MatCardModule,
