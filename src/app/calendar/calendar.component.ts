@@ -16,7 +16,7 @@ import {
   addHours,
 } from 'date-fns';
 import { Subject } from 'rxjs';
-import {NgbPaginationModule, NgbAlertModule, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 export class YourAppModule {
 }
 import {
@@ -44,8 +44,8 @@ const colors: any = {
 @Component({
   selector: 'mwl-demo-component',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['styles.css'],
-  templateUrl: 'template.html',
+  templateUrl: './calendar.component.html',
+  styleUrls: ['./calendar.component.css']
 })
 export class DemoComponent {
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
