@@ -5,28 +5,6 @@
 
   }
 
-
-.fa-instagram {
-   background: #125688;
-   color: rgb(255, 255, 255);
-   padding: 10px;
-   font-size: 20px;
-   width:15px;
-   text-align: center;
-   text-decoration: none;
-   border-radius: 50%;
-} 
-.fa-facebook   {
-   background: #3B5998;
-   color: white;
-   padding: 10px;
-   font-size: 20px;
-   width: 15px;
-   text-align: center;
-   text-decoration: none;
-   border-radius: 50%;
-}
-
 body {
    font-family: "Lato", sans-serif;
  }
@@ -66,8 +44,6 @@ body {
   margin: auto;
 }
 
- 
-
  header{
   background: rgb(121, 69, 189);
  }
@@ -100,7 +76,7 @@ nav ul {
 nav li {
   display: inline-block;
   margin-left: 70px;
-  padding-top: 20px;
+  padding-top: 0px;
 
   position: relative;
 }
@@ -117,10 +93,5 @@ nav a:hover{
 
 }
 
- 
- @media screen and (max-height: 450px) {
-   .sidenav {padding-top: 15px;}
-   .sidenav a {font-size: 18px;}
- }
 
 
