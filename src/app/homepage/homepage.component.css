@@ -55,4 +55,29 @@ hr{
     margin-bottom: 5vmin;
 }
 
+/* Style all font awesome icons */
+.vertical-center  {
+    
+}
+
+.fa {
+    position: relative;
+    margin-left: 200px;
+    padding: 20px;
+    font-size: 40px;
+    width: 75px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 45%;
+  }
+  
+  /* Add a hover effect if you want */
+  .fa:hover {
+    opacity: 0.7;
+    color: rgb(82, 66, 139)09, 183, 183);
+  }
+
+  
+  /* Set a specific color for each brand */
+
 
