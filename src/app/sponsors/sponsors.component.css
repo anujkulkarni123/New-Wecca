@@ -18,27 +18,24 @@
     text-align: center;
   }
 
-  .column {
+  .container{
     float: left;
     width: 25%;
+  }
+
+  .column {
     border: 5px solid rgb(138, 43, 226);
     border-radius: 10px;
   }
   .column2 {
-    float: left;
-    width: 25%;
     border: 5px solid #b08d57;
     border-radius: 10px;
   }
   .column3 {
-    float: left;
-    width: 25%;
     border: 5px solid	#808080;
     border-radius: 10px;
   }
   .column4 {
-    float: left;
-    width: 25%;
     border: 5px solid goldenrod;
     border-radius: 10px;
   }
