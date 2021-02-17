@@ -9,7 +9,7 @@
   }
 
   #silver{
-    color: #C0C0C0; 
+    color: #808080; 
     text-align: center;
   }
 
@@ -18,10 +18,51 @@
     text-align: center;
   }
 
+  .column {
+    float: left;
+    width: 25%;
+    border: 5px solid rgb(138, 43, 226);
+    border-radius: 10px;
+  }
+  .column2 {
+    float: left;
+    width: 25%;
+    border: 5px solid #b08d57;
+    border-radius: 10px;
+  }
+  .column3 {
+    float: left;
+    width: 25%;
+    border: 5px solid	#808080;
+    border-radius: 10px;
+  }
+  .column4 {
+    float: left;
+    width: 25%;
+    border: 5px solid goldenrod;
+    border-radius: 10px;
+  }
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
   .gap-20{
     width: 100%;
     height: 100px;
     }
+
+  .gap-21{
+    width: 100%;
+    height: 300px;
+    }
+
+  .gap-22{
+    width: 100%;
+    height: 370px;
+      }
 
   .gap-10{
       width: 100%;
@@ -30,6 +71,10 @@
   .gap-15{
     width: 100%;
     height: 50px;
+  }
+  .gap-25{
+    width: 100%;
+    height: 500px;
   }
   #center{
     text-align: center;
