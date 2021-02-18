@@ -205,3 +205,14 @@ export class CalendarComponent implements OnInit {
   }
   
 }
+@Component({
+  template: `
+    <input 
+      type="text" 
+      mwlFlatpickr 
+      [(ngModel)]="selectedDate" 
+      [altInput]="true" 
+      [convertModelValue]="true">
+  `
+})
+export class MyComponent {}
