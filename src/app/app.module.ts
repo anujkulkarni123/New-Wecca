@@ -45,3 +45,30 @@ import { NgbAlertModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap'
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+  ],
+  declarations: [CalendarComponent],
+  exports: [CalendarComponent],
+})
+export class DemoModule {}
+
+import 'flatpickr/dist/flatpickr.css'; // you may need to adjust the css import depending on your build tool
+@NgModule({
+  imports: [FormsModule, FlatpickrModule.forRoot()]
+})
+export class MyModule {}
