@@ -205,16 +205,25 @@
   }
   .bg-purple {
     border-top:3px solid rgb(138, 43, 226);
+    font-size: 18px;
   }
+
+  tr{
+    font-size: 18px;
+  }
+
   .bg-bronze {
     border-top:3px solid #b08d57;
+    font-size: 18px;
   }
   
   .bg-silver {
     border-top:3px solid #808080;
+    font-size: 18px;
   }
   .bg-gold {
     border-top:3px solid goldenrod;
+    font-size: 18px;
   }
   
   .sep {
