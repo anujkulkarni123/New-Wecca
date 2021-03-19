@@ -17,7 +17,18 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbAlertModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
+// 
 
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    })
+    ] 
+//
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,0 +1,72 @@
+
+<mwl-calendar-month-view [viewDate]="viewDate">
+</mwl-calendar-month-view>
+
+
+<mwl-calendar-week-view [viewDate]="viewDate">
+</mwl-calendar-week-view>
+
+<mwl-calendar-day-view [viewDate]="viewDate">
+</mwl-calendar-day-view>
+
+<div class="row text-center">
+
+    <div class="col-md-4">
+        <div class="btn-group">
+            <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
+                Previous
+            </div>
+            <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
+                Today
+            </div>
+            <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
+                Next
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<mwl-calendar-month-view [viewDate]="viewDate">
+</mwl-calendar-month-view>
+
+<div class="col-md-4">
+    <div class="btn-group">
+        <div class="btn btn-primary" (click)="setView(CalendarView.Month)" [class.active]="view === CalendarView.Month">
+            Month
+        </div>
+        <div class="btn btn-primary" (click)="setView(CalendarView.Week)" [class.active]="view === CalendarView.Week">
+            Week
+        </div>
+        <div class="btn btn-primary" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">
+            Day
+        </div>
+    </div>
+</div>
+
+
+<div [ngSwitch]="view">
+
+    <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate">
+    </mwl-calendar-month-view>
+
+    <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate">
+    </mwl-calendar-week-view>
+
+    <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate">
+    </mwl-calendar-day-view>
+
+</div>
+
+<div [ngSwitch]="view">
+
+    <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events">
+    </mwl-calendar-month-view>
+
+    <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events">
+    </mwl-calendar-week-view>
+
+    <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events">
+    </mwl-calendar-day-view>
+
+</div>
