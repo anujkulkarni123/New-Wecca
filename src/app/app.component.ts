@@ -1,7 +1,10 @@
 import { AotSummaryResolver } from '@angular/compiler';
 import { Component, ModuleWithComponentFactories, OnInit } from '@angular/core';
+import { CalendarEvent } from 'angular-calendar';
+
 
 import * as AOS from 'aos';
+import { startOfDay } from 'date-fns';
 declare var $:any;
 import 'ekko-lightbox';
 
@@ -24,3 +27,10 @@ export class AppComponent implements OnInit{
 
 }
 
+
+events: CalendarEvent() = [
+  {
+    start: startOfDay(new Date()),
+    title: 'An event with no end date',
+  }
+]
