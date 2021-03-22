@@ -28,9 +28,9 @@ export class AppComponent implements OnInit{
 }
 
 
-events: CalendarEvent() = [
-  {
-    start: startOfDay(new Date()),
-    title: 'An event with no end date',
-  }
-]
+// events: CalendarEvent() = [
+//   {
+//     start: startOfDay(new Date()),
+//     title: 'An event with no end date',
+//   }
+// ]

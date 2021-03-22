@@ -2,6 +2,8 @@ import { CalendarView, CalendarEvent } from 'angular-calendar';
 import { Component, OnInit } from '@angular/core';
 
 import { startOfDay } from 'date-fns';
+import { CalendarEventActionsComponent } from 'angular-calendar/modules/common/calendar-event-actions.component';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-calendar',
@@ -14,6 +16,7 @@ export class CalendarComponent implements OnInit {
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
   
+  
   setView(view: CalendarView) {
     this.view = view;
   }
@@ -24,14 +27,22 @@ export class CalendarComponent implements OnInit {
   }
 }
 
-CalendarEvent []  = [
+var events: CalendarEvent [] = [
   {
     start: startOfDay(new Date()),
     title: 'First event',
+    color: {
+      primary: '#ad2121',
+      secondary: '#FAE3E3',
+    }
   },
   {
     start: startOfDay(new Date()),
     title: 'Second event',
+    color: {
+      primary: '#ad2121',
+      secondary: '#FAE3E3',
+    }
   }
 ];
 
