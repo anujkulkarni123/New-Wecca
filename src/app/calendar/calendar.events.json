@@ -1,0 +1,42 @@
+[
+    {
+            "title":"Spring Exams",
+            "start":"2021-04-08T00:00:00.000Z"
+        },
+        {
+            "title":"Spring Study Days",
+            "start":"2021-04-06T00:00:00.000Z"
+        },
+        {
+            "title":"Spring Classes End",
+            "start":"2021-04-05T00:00:00.000Z"
+        },
+        {
+            "title":"Paddling Workout",
+            "start":"2021-04-04T15:30:00.000Z"
+        },
+        {
+            "title":"Good Friday (no classes)",
+            "start":"2021-04-02T00:00:00.000Z"
+        },
+        {
+            "title":"Software Meeting",
+            "start":"2021-03-30T02:00:00.000Z"
+        },
+        {
+            "title":"Mould Team Meeting",
+            "start":"2021-03-29T21:30:00.000Z"
+        },
+        {
+            "title":"Paddling Workout",
+            "start":"2021-03-28T15:30:00.000Z"
+        },
+        {
+            "title":"General Meeting 13",
+            "start":"2021-03-23T20:30:00.000Z"
+        },
+        {
+            "title":"Software Meeting",
+            "start":"2021-03-23T02:00:00.000Z"
+        }
+    ]

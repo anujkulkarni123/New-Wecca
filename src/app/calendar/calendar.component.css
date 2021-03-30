@@ -1,16 +1,6 @@
-.row {
-  width: 100%;
-  margin: 0 auto;
+.cal-events {
+    display: none !important;
+
+    /* display calendar.events.insert(); */
+
 }
-
-.block {
-  width: 100px;
-  display: inline-block; 
-}​
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 10px;
-  }
