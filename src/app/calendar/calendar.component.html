@@ -43,19 +43,23 @@
     </div>
 </div> -->
 
+<div class="container">
+    <div class="row justify-content-center">
+        <h1 class="center-sub" style="padding-top: 80px;">WECCA Calendar</h1>
+        <div [ngSwitch]="view" style="width: 100%">
 
- <div [ngSwitch]="view" style="padding-top: 75px">
-
-    <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate">
-    </mwl-calendar-month-view>
-
-    <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate">
-    </mwl-calendar-week-view>
-
-    <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate">
-    </mwl-calendar-day-view>
-
-</div> 
+            <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate">
+            </mwl-calendar-month-view>
+        
+            <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate">
+            </mwl-calendar-week-view>
+        
+            <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate">
+            </mwl-calendar-day-view>
+        
+        </div> 
+    </div>
+</div>
 
 
 <!--<div [ngSwitch]="view">
