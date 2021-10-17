@@ -1,6 +1,10 @@
 # WeccaWebsite
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+When initially cloning, make sure to update package.json
+    --> Command: npm i
+Also, you may need typescript versions between 3.4.0 and 3.6.0
+    --> Command: npm install typescript@'>=3.4.0 <3.6.0'
 
 ## Development server
 
