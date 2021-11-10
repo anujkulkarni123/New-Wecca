@@ -8,6 +8,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ExecpageComponent } from './execpage/execpage.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { SponsorsComponent } from './sponsors/sponsors.component';
+import { newPageComponent } from './newPage/newPage.component';
 
 
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from  '@angular/material';
@@ -35,7 +36,8 @@ imports: [
     HomepageComponent,
     ExecpageComponent,
     CalendarComponent,
-    SponsorsComponent
+    SponsorsComponent,
+    newPageComponent
   ],
   imports: [
     BrowserModule,
