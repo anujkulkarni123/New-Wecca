@@ -10,23 +10,6 @@
 -->
 <h1 class="center-sub" style="padding-top: 80px;">WECCA Calendar</h1>
 
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="btn-group">
-            <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
-                Previous
-            </div>
-            <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
-                Today
-            </div>
-            <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
-                Next
-            </div>
-        </div>
-    </div>
-</div>
-<br>
-
 <div class="container">
     <div class="row justify-content-center">
         <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
@@ -49,7 +32,24 @@
     </div> 
 </div>
 
-<div class="container">
+<div style="height: 10px;"></div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="btn-group">
+            <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
+                Previous
+            </div>
+            <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
+                Today
+            </div>
+            <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
+                Next
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="font-size: 15px;">
     <br>
     <div class="row justify-content-center">
         <div [ngSwitch]="view" style="width: 100%">
@@ -83,6 +83,7 @@
       <div>
         Event:
         <pre>{{ modalData?.event | json }}</pre>
+        <pre>{{  modalData?.event.title }}  {{'\n'}} {{modalData?.event.start }}{{' to'}} {{modalData?.event.end}}</pre>
       </div>
     </div>
     <div class="modal-footer">

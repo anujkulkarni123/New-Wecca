@@ -4,3 +4,16 @@
     /* display calendar.events.insert(); */
 
 }
+
+.btn {
+    background-color: #420a83;
+}
+.btn-outline-secondary{
+    color: white;
+}
+.btn:hover{
+    background-color: #7b39c5;
+}
+.btn::selection{
+    background-color: #e5e3e9;
+}

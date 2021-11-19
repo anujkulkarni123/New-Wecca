@@ -73,6 +73,7 @@ export class CalendarComponent implements OnInit {
   ];
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
+    console.log(date.toLocaleString());
     if (isSameMonth(date, this.viewDate)) {
       if (
         (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
