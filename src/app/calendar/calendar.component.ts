@@ -63,7 +63,7 @@ export class CalendarComponent implements OnInit {
     },
     {
       title:"Software Meeting",
-      start: new Date("2021-11-10T20:30:00.000Z"),
+      start: new Date("2021-11-22T20:30:00.000Z"),
       end: addHours(new Date("2021-11-10T20:30:00.000Z"), 1),
       color: {
         primary: '#ad2121',
