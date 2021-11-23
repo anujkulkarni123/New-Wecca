@@ -136,6 +136,7 @@ import { FormsModule } from '@angular/forms';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
+/*
 @NgModule({
   imports: [
     CommonModule,
@@ -157,3 +158,4 @@ import 'flatpickr/dist/flatpickr.css'; // you may need to adjust the css import 
   imports: [FormsModule, FlatpickrModule.forRoot()]
 })
 export class MyModule {}
+*/

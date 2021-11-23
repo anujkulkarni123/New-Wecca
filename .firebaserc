@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "wecca-uwo"
+  },
+  "targets": {
+    "wecca-uwo": {
+      "hosting": {
+        "weccaWebsite": [
+          "wecca-uwo"
+        ]
+      }
+    }
+  }
+}
