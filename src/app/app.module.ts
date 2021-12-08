@@ -63,7 +63,8 @@ imports: [
     ExecpageComponent,
     CalendarComponent,
     SponsorsComponent,
-    newPageComponent
+    newPageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -135,6 +136,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './login/login.component';
 
 /*
 @NgModule({
