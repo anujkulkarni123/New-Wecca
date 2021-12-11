@@ -1,5 +1,7 @@
 # WeccaWebsite
 
+This project is now live, and is accessible at https://weccauwo.com/ 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
 When initially cloning, make sure to update package.json
     --> Command: npm i
