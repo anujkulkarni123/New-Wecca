@@ -80,10 +80,7 @@ export class CalendarComponent implements OnInit {
   }
 
   private getData() {
-    //https://www.googleapis.com/calendar/v3/calendars/455082530244-ac8l5p970d2hc2u5qh91m26tvu75man2.apps.googleusercontent.com/events?key=AIzaSyDU2tQxqgiDJQtYH-WDjj0i_Sg3LgPnTYA
-
     const KEY = KEYS.KEY;
-    const CLIENT_ID = KEYS.CLIENT_ID;
     const CALENDAR_ID = KEYS.CALENDAR_ID;
 
     const url = [

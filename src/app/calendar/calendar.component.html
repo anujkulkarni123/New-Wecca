@@ -87,13 +87,15 @@
       </button>
     </div>
     <div class="modal-body">
+        <!--
       <div>
         Action:
         <pre>{{ modalData?.action }}</pre>
       </div>
+      -->
       <div>
         Event:
-        <pre>{{ modalData?.event | json }}</pre>
+        <!-- <pre>{{ modalData?.event | json }}</pre> -->
         <pre>{{  modalData?.event.title }}  {{'\n'}} {{modalData?.event.start }}{{' to'}} {{modalData?.event.end}}</pre>
       </div>
     </div>
