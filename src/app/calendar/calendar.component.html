@@ -8,6 +8,7 @@
 </mwl-calendar-day-view>
 
 -->
+<div *ngIf='dataIsAvailable'>
 <h1 class="center-sub" style="padding-top: 80px;">WECCA Calendar</h1>
 
 <div class="container">
@@ -54,13 +55,13 @@
     <div class="row justify-content-center">
         <div [ngSwitch]="view" style="width: 100%">
 
-            <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events" (eventClicked)="handleEvent('Clicked', $event.event)">
+            <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="calendarEvents" (eventClicked)="handleEvent('Clicked', $event.event)">
             </mwl-calendar-month-view>
         
-            <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events" (eventClicked)="handleEvent('Clicked', $event.event)">
+            <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="calendarEvents" (eventClicked)="handleEvent('Clicked', $event.event)">
             </mwl-calendar-week-view>
         
-            <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events" (eventClicked)="handleEvent('Clicked', $event.event)">
+            <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="calendarEvents" (eventClicked)="handleEvent('Clicked', $event.event)">
             </mwl-calendar-day-view>
         
         </div> 
@@ -77,6 +78,7 @@
         Start - End Time
 
 -->
+</div>
 <ng-template #modalContent let-close="close">
     <div class="modal-header">
       <h5 class="modal-title">Event action occurred</h5>
