@@ -22,6 +22,10 @@ import {
   addMinutes,
   isSameMonth,
   isSameDay,
+  getMonth,
+  setWeek,
+  addWeeks,
+  addMonths,
 } from "date-fns";
 import { CalendarEventActionsComponent } from "angular-calendar/modules/common/calendar-event-actions.component";
 import { connectableObservableDescriptor } from "rxjs/internal/observable/ConnectableObservable";
@@ -41,8 +45,8 @@ export class CalendarComponent implements OnInit {
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
   activeDayIsOpen: boolean = true;
-  private calendarEvents : CalendarEvent[] = [];
-  dataIsAvailable : boolean = false;
+  private calendarEvents: CalendarEvent[] = [];
+  dataIsAvailable: boolean = false;
 
   setView(view: CalendarView) {
     this.view = view;
@@ -56,39 +60,126 @@ export class CalendarComponent implements OnInit {
   constructor(private modal: NgbModal, private http: HttpClient) {}
 
   ngOnInit() {
+
+    this.fillEvents("general");
+
+    //Uncomment when exec calendar is fixed
+    //this.fillEvents('exec');
+    
+  }
+
+  private fillEvents(calendar: string){
     let count = 0;
-    let temp = this.getData();
+    let temp = this.getData(calendar);
 
     temp.then((d) => {
-      for(let item of d){
+      for (let item of d) {
+        if (item["status"] == "cancelled") {
+          count++;
+          continue;
+        }
+        if(item['recurrence']){
+          this.addRecurringDates(item, 10);
+        }
         this.calendarEvents[count] = {
-          title: item['summary'],
-          start: item['start']['dateTime'] != null ? new Date(item['start']['dateTime']) : new Date(item['start']['date']),
-          end: item['start']['dateTime'] != null ? new Date(item['end']['dateTime']) : endOfDay(new Date(item['start']['date'])),
-          allDay: item['start']['dateTime'] == null ? true : false,
+          title: item["summary"],
+          start:
+            item["start"]["dateTime"] != null
+              ? new Date(item["start"]["dateTime"])
+              : new Date(item["start"]["date"]),
+          end:
+            item["start"]["dateTime"] != null
+              ? new Date(item["end"]["dateTime"])
+              : endOfDay(new Date(item["start"]["date"])),
+          allDay: item["start"]["dateTime"] == null ? true : false,
+
+          //Improve colouring
           color: {
             primary: "#ad2121",
             secondary: "#FAE3E3",
           },
           //Next steps: location
-        }
+        };
 
         count++;
-        if(count == d.length) this.dataIsAvailable = true;
+
+        if (count == d.length) this.dataIsAvailable = true;
       }
     });
   }
 
-  private getData() {
+  private addRecurringDates(dateObject : any, iterations : number){
+
+    //Handles weekly, biweekly, and monthly events
+
+    let relation : string = dateObject['recurrence'];
+    let additions : string;
+    let repeats : number = 1;
+
+    //Get how often this event repeats
+    let sp = [];
+    sp = relation[0].split(";");
+
+    for(let element of sp){
+      if(element.indexOf("INTERVAL") >= 0){
+        let split : any[] = element.split('=');
+        repeats = split[1];
+      }
+    }
+    
+    if(relation[0].indexOf("WEEKLY") >= 0 && repeats == 2){
+      additions = "biweekly";
+    }
+    else if(relation[0].indexOf("MONTHLY") >= 0){
+      additions = "monthly";
+      //getMonth(dateObject['start']['dateTime']);
+    }
+    else{
+      additions = "weekly";
+    }
+
+    for(let i = 0; i < iterations; i++){
+      let start : Date;
+      let end : Date;
+      switch(additions){
+        case "weekly":
+          start = addWeeks(new Date(dateObject['start']['dateTime']), i + 1);
+          end = addWeeks(new Date(dateObject['end']['dateTime']), i + 1);
+          break;
+        case "biweekly":
+          start = addWeeks(new Date(dateObject['start']['dateTime']), 2 * (i + 1));
+          end = addWeeks(new Date(dateObject['end']['dateTime']), 2 * (i + 1));
+          break;
+        case "monthly":
+          start = addMonths(new Date(dateObject['start']['dateTime']), i + 1);
+          end = addMonths(new Date(dateObject['end']['dateTime']), i + 1);
+          break;
+      }
+      this.calendarEvents[this.calendarEvents.length] = {
+        title: dateObject['summary'],
+        start: start,
+        end: end,
+        color: {
+          primary: "#ad2121",
+          secondary: "#FAE3E3",
+        }
+      }
+    }
+  }
+
+  private getData(calendar : string) {
+    //Exec doesn't work rn
+    const CALENDAR_ID = calendar === 'exec' ? KEYS.EXEC_CALENDAR_ID : KEYS.GENERAL_CALENDAR_ID;
     const KEY = KEYS.KEY;
-    const CALENDAR_ID = KEYS.CALENDAR_ID;
 
     const url = [
       "https://www.googleapis.com/calendar/v3/calendars/",
       CALENDAR_ID,
       "/events?key=",
-      KEY,
+      KEY
     ].join("");
+
+    console.log(url);
 
     return this.http
       .get(url)
