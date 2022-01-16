@@ -45,7 +45,7 @@ export class CalendarComponent implements OnInit {
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
   activeDayIsOpen: boolean = true;
-  private calendarEvents: CalendarEvent[] = [];
+  calendarEvents: CalendarEvent[] = [];
   dataIsAvailable: boolean = false;
 
   setView(view: CalendarView) {
@@ -79,7 +79,7 @@ export class CalendarComponent implements OnInit {
           continue;
         }
         if(item['recurrence']){
-          this.addRecurringDates(item, 10);
+          this.addRecurringDates(item);
         }
         this.calendarEvents[count] = {
           title: item["summary"],
@@ -95,8 +95,8 @@ export class CalendarComponent implements OnInit {
 
           //Improve colouring
           color: {
-            primary: "#ad2121",
-            secondary: "#FAE3E3",
+            primary: "#7945bd",
+            secondary: "#e3d0f0",
           },
           //Next steps: location
         };
@@ -108,13 +108,14 @@ export class CalendarComponent implements OnInit {
     });
   }
 
-  private addRecurringDates(dateObject : any, iterations : number){
+  private addRecurringDates(dateObject : any){
 
     //Handles weekly, biweekly, and monthly events
 
     let relation : string = dateObject['recurrence'];
     let additions : string;
     let repeats : number = 1;
+    let iterations : number = 1;
 
     //Get how often this event repeats
     let sp = [];
@@ -129,13 +130,16 @@ export class CalendarComponent implements OnInit {
     
     if(relation[0].indexOf("WEEKLY") >= 0 && repeats == 2){
       additions = "biweekly";
+      iterations = 10;
     }
     else if(relation[0].indexOf("MONTHLY") >= 0){
       additions = "monthly";
+      iterations = 4;
       //getMonth(dateObject['start']['dateTime']);
     }
     else{
       additions = "weekly";
+      iterations = 20;
     }
 
     for(let i = 0; i < iterations; i++){
@@ -160,8 +164,8 @@ export class CalendarComponent implements OnInit {
         start: start,
         end: end,
         color: {
-          primary: "#ad2121",
-          secondary: "#FAE3E3",
+          primary: "#7945bd",
+          secondary: "#e3d0f0",
         }
       }
     }
@@ -179,8 +183,6 @@ export class CalendarComponent implements OnInit {
       KEY
     ].join("");
 
-    console.log(url);
-
     return this.http
       .get(url)
       .toPromise()
@@ -191,36 +193,6 @@ export class CalendarComponent implements OnInit {
     this.modalData = { event, action };
     this.modal.open(this.modalContent, { size: "lg" });
   }
-
-  events: CalendarEvent[] = [
-    {
-      start: startOfDay(new Date()),
-      end: setHours(new Date(), 2),
-      title: "2 hour event at beginning of day",
-      color: {
-        primary: "#ad2121",
-        secondary: "#FAE3E3",
-      },
-    },
-    {
-      start: setHours(startOfDay(new Date()), 10),
-      end: setHours(new Date(), 15),
-      title: "5 hour event starting at 10 am",
-      color: {
-        primary: "#ad2121",
-        secondary: "#FAE3E3",
-      },
-    },
-    {
-      title: "Software Meeting",
-      start: new Date("2021-11-22T20:30:00.000Z"),
-      end: addHours(new Date("2021-11-22T20:30:00.000Z"), 1),
-      color: {
-        primary: "#ad2121",
-        secondary: "#FAE3E3",
-      },
-    },
-  ];
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     console.log(date.toLocaleString());
