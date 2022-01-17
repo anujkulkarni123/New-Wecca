@@ -44,6 +44,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 // 
 
 imports: [
@@ -66,6 +68,7 @@ imports: [
     newPageComponent
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
