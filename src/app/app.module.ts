@@ -51,7 +51,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
 imports: [
     BrowserModule,
     AppRoutingModule,
-    
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,

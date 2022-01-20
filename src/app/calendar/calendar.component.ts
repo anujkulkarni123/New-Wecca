@@ -3,6 +3,7 @@ import {
   CalendarEvent,
   CalendarEventAction,
   CalendarEventTitleFormatter,
+  CalendarEventTimesChangedEvent,
 } from "angular-calendar";
 import {
   Component,
@@ -12,7 +13,7 @@ import {
   TemplateRef,
 } from "@angular/core";
 
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModal, NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {
   addHours,
   endOfDay,
@@ -37,27 +38,63 @@ import { Subject } from "rxjs";
 
 //Track colours
 const colors: any = {
-  red: {
-    primary: '#ad2121',
-    secondary: '#FAE3E3',
-  },
-  blue: {
-    primary: '#1e90ff',
-    secondary: '#D1E8FF',
-  },
-  yellow: {
-    primary: '#e3bc08',
-    secondary: '#FDF1BA',
-  },
-  purple: {
+
+  //General --> general
+  //Materials --> materials
+  //Mould --> mould
+  //Design and Analysis --> design
+  //Research and Development --> research
+  //Executive General --> executive
+  //Software --> software
+  //Training --> training
+  //Graphic Design --> graphic
+  //Tech comms/pres --> presentation
+
+  general: {
     primary: "#7945bd",
     secondary: "#e3d0f0",
-  }
+  },
+  executive: {
+    primary: '#3C91E6',
+    secondary: "#92c9ff"
+  },
+  software: {
+    primary: "#A2D729",
+    secondary: "#cfea91"
+  },
+  materials: {
+    primary: "#FA824C",
+    secondary: "#ffbea0"
+  },
+  mould: {
+    primary: "#D4AFB9",
+    secondary: "#fcdfe6"
+  },
+  design: {
+    primary: "#FFB30F",
+    secondary: "#ffdd95"
+  },
+  research: {
+    primary: "#bcc2bc",
+    secondary: "#F2F7F2"
+  },
+  presentation: {
+    primary: "#8B9D83",
+    secondary: "#bedcb0"
+  },
+  graphic: {
+    primary: "#5d6b67",
+    secondary: "#b4bfbc"
+  },
+  training: {
+    primary: "#E54F6D",
+    secondary: "#ed9dad"
+  },
 };
 
 @Component({
   selector: "app-calendar",
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: "./calendar.component.html",
   styleUrls: ["./calendar.component.css"],
   providers: [
@@ -69,12 +106,13 @@ const colors: any = {
 })
 export class CalendarComponent implements OnInit {
   @ViewChild("modalContent", { static: true }) modalContent: TemplateRef<any>;
+  @ViewChild("modalPopup", {static: false}) modalPopup: String;
 
   viewDate: Date = new Date();
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
   activeDayIsOpen: boolean = true;
-  calendarEvents: CalendarEvent[] = [];
+  //calendarEvents: CalendarEvent[] = [];
   dataIsAvailable: boolean = false;
 
   actions: CalendarEventAction[] = [
@@ -95,6 +133,131 @@ export class CalendarComponent implements OnInit {
     },
   ];
 
+  calendarEvents: CalendarEvent[] = [
+    {
+      start: startOfDay(new Date()),
+      end: addHours(startOfDay(new Date()), 1),
+      title: 'General Event',
+      color: colors.general,
+      actions: this.actions,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+      draggable: true,
+      meta: "This is the comment for a general meeting. Here is the location ________."
+    },
+    {
+      start: addHours(startOfDay(new Date()),1),
+      end: addHours(startOfDay(new Date()), 2),
+      title: 'Executive Event',
+      color: colors.executive,
+      actions: this.actions,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+      draggable: true,
+    },
+    {
+      start: addHours(startOfDay(new Date()),2),
+      end: addHours(startOfDay(new Date()), 3),
+      title: 'Software Event',
+      color: colors.software,
+      actions: this.actions,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+      draggable: true,
+    },
+    {
+      start: addHours(startOfDay(new Date()),3),
+      end: addHours(startOfDay(new Date()), 4),
+      title: 'Materials Event',
+      color: colors.materials,
+      actions: this.actions,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+      draggable: true,
+    },
+    {
+      start: addHours(startOfDay(new Date()),4),
+      end: addHours(startOfDay(new Date()), 5),
+      title: 'Mould Event',
+      color: colors.mould,
+      actions: this.actions,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+      draggable: true,
+    },
+    {
+      start: addHours(startOfDay(new Date()),5),
+      end: addHours(startOfDay(new Date()), 6),
+      title: 'Design and Analysis Event',
+      color: colors.design,
+      actions: this.actions,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+      draggable: true,
+    },
+    {
+      start: addHours(startOfDay(new Date()),6),
+      end: addHours(startOfDay(new Date()), 7),
+      title: 'Research and Development Event',
+      color: colors.research,
+      actions: this.actions,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+      draggable: true,
+    },
+    {
+      start: addHours(startOfDay(new Date()),7),
+      end: addHours(startOfDay(new Date()), 8),
+      title: 'Technical Presentation/Communications Event',
+      color: colors.presentation,
+      actions: this.actions,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+      draggable: true,
+    },
+    {
+      start: addHours(startOfDay(new Date()),8),
+      end: addHours(startOfDay(new Date()), 9),
+      title: 'Training Event',
+      color: colors.training,
+      actions: this.actions,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+      draggable: true,
+    },
+    {
+      start: addHours(startOfDay(new Date()),9),
+      end: addHours(startOfDay(new Date()), 10),
+      title: 'Graphic Design Event',
+      color: colors.graphic,
+      actions: this.actions,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+      draggable: true,
+    },
+    
+  ];
+
   refresh = new Subject<void>();
 
   setView(view: CalendarView) {
@@ -106,8 +269,64 @@ export class CalendarComponent implements OnInit {
     event: CalendarEvent;
   };
 
-  constructor(private modal: NgbModal, private http: HttpClient) {}
+  constructor(private modal: NgbModal, private http: HttpClient, public activeModal: NgbActiveModal) {}
+  ngOnInit() {}
 
+  handleEvent(action: string, event: CalendarEvent): void {
+    this.modalData = { event, action };
+    this.modal.open(this.modalContent, { size: "lg" });
+  }
+
+  modalPop(): void {
+    this.modal.open(this.modalPopup, {size: 'lg'});
+  }
+
+  dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
+    if (isSameMonth(date, this.viewDate)) {
+      if (
+        (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
+        events.length === 0
+      ) {
+        this.activeDayIsOpen = false;
+      } else {
+        this.activeDayIsOpen = true;
+      }
+      this.viewDate = date;
+    }
+  }
+
+  closeOpenMonthViewDay() {
+    this.activeDayIsOpen = false;
+  }
+
+  addEvent(): void {
+    this.calendarEvents = [
+      ...this.calendarEvents,
+      {
+        title: 'New event',
+        start: startOfDay(new Date()),
+        end: endOfDay(new Date()),
+        color: colors.purple,
+        draggable: true,
+        resizable: {
+          beforeStart: true,
+          afterEnd: true,
+        },
+      },
+    ];
+  }
+
+  eventTimesChanged({
+    event,
+    newStart,
+    newEnd,
+  }: CalendarEventTimesChangedEvent): void {
+    event.start = newStart;
+    event.end = newEnd;
+    this.refresh.next();
+  }
+
+  /*
   ngOnInit() {
 
     this.fillEvents("general");
@@ -229,46 +448,7 @@ export class CalendarComponent implements OnInit {
       .toPromise()
       .then((data: any) => data.items);
   }
-
-  handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = { event, action };
-    this.modal.open(this.modalContent, { size: "lg" });
-  }
-
-  dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-    if (isSameMonth(date, this.viewDate)) {
-      if (
-        (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
-        events.length === 0
-      ) {
-        this.activeDayIsOpen = false;
-      } else {
-        this.activeDayIsOpen = true;
-      }
-      this.viewDate = date;
-    }
-  }
-
-  closeOpenMonthViewDay() {
-    this.activeDayIsOpen = false;
-  }
-
-  addEvent(): void {
-    this.calendarEvents = [
-      ...this.calendarEvents,
-      {
-        title: 'New event',
-        start: startOfDay(new Date()),
-        end: endOfDay(new Date()),
-        color: colors.purple,
-        draggable: true,
-        resizable: {
-          beforeStart: true,
-          afterEnd: true,
-        },
-      },
-    ];
-  }
+  */
 }
 
 // interface MyEvent extends CalendarEvent {
