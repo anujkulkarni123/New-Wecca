@@ -117,13 +117,20 @@
     </div>
   </div>
   <br />
-
+  
+  <hr>
   <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col text-center">
+        <button (click)="modalPop()" class="text-center btn">
+          Add an Event</button
+        ><br /><br />
+      </div>
+    </div>
     <div class="row justify-content-center">
       <div class="col-8 text-center">
         <h3>
           Edit events
-          <button class="btn btn-primary" (click)="modalPop()">Add new</button>
           <div class="clearfix"></div>
         </h3>
       </div>
@@ -141,6 +148,7 @@
                 <th>Starts at</th>
                 <th>Ends at</th>
                 <th>Comments/Description</th>
+                <th>Submit Changes</th>
                 <th>Remove</th>
               </tr>
             </thead>
@@ -201,6 +209,11 @@
                   />
                 </td>
                 <td>
+                  <button class="btn" (click)="submitChanges(event)">
+                    Submit
+                  </button>
+                </td>
+                <td>
                   <button class="btn btn-danger" (click)="deleteEvent(event)">
                     Delete
                   </button>
@@ -219,10 +232,10 @@
       </div>
     </div>
   </div>
-  <br /><br />
 </div>
 
-<ng-template #modalPopup let-close="close">
+<!--
+<ng-template let-close="close">
   <div class="modal-header">
     <h5 class="modal-title">Add Event</h5>
     <button type="button" class="close" (click)="close()">
@@ -243,10 +256,11 @@
     </button>
   </div>
 </ng-template>
+-->
 
 <ng-template #modalContent let-close="close">
   <div class="modal-header">
-    <h5 class="modal-title">Event action occurred</h5>
+    <h5 class="modal-title">Event Details</h5>
     <button type="button" class="close" (click)="close()">
       <span aria-hidden="true">&times;</span>
     </button>

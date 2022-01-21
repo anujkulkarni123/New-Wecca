@@ -1,0 +1,16 @@
+.btn {
+  border-color: #7945bd;
+  background-color: #420a83;
+  color: white;
+}
+.btn:hover {
+  background-color: #7945bd;
+  border-color: #420a83;
+}
+.interact {
+  display: inline; 
+  margin-left: 10px;
+}
+.quant {
+  width: 20%;
+}

@@ -6,18 +6,21 @@
 
 .btn {
   background-color: #420a83;
+  color: white;
 }
 .btn-outline-secondary {
   color: white;
 }
 .btn:hover {
   background-color: #7945bd;
+  color: white;
 }
 .btn-danger, .btn-primary{
   border-color: #7945bd;
 }
 .btn-danger:hover, .btn-primary:hover {
   border-color: #7945bd;
+  color: white;
 }
 pre{
   font-family: "Lato", sans-serif;
