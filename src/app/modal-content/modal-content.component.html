@@ -1,0 +1,107 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Add an Event</h4>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body text-center">
+  <div class="row">
+    <div class="col">
+      <div>Title</div>
+      <input
+        style="width: 100%; border: 1px solid rgb(221, 221, 221)"
+        class="text-input"
+        [(ngModel)]="sampleEvent.calendarData.title"
+        type="text"
+        class="text-center"
+        mdbInput
+        placeholder="Title"
+      />
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col">
+      <div>Comment</div>
+      <input
+        style="width: 100%; border: 1px solid rgb(221, 221, 221)"
+        class="text-input"
+        [(ngModel)]="sampleEvent.calendarData.meta"
+        type="text"
+        class="text-center"
+        mdbInput
+        placeholder="Zoom link, location, etc."
+      />
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col">
+      <div>Starts At</div>
+      <input
+        class="form-control text-center"
+        type="text"
+        mwlFlatpickr
+        [(ngModel)]="sampleEvent.calendarData.start"
+        [altInput]="true"
+        [convertModelValue]="true"
+        [enableTime]="true"
+        dateFormat="Y-m-dTH:i"
+        altFormat="F j, Y H:i"
+        placeholder="Not set"
+      />
+    </div>
+    <div class="col">
+      <div>Ends At</div>
+      <input
+        class="form-control text-center"
+        type="text"
+        mwlFlatpickr
+        [(ngModel)]="sampleEvent.calendarData.end"
+        [altInput]="true"
+        [convertModelValue]="true"
+        [enableTime]="true"
+        dateFormat="Y-m-dTH:i"
+        altFormat="F j, Y H:i"
+        placeholder="Not set"
+      />
+    </div>
+  </div>
+  <br />
+  <hr>
+  <div class="row justify-content-center">
+      <div class="col">
+          <label for="check">Recurring?</label>
+          <input class="interact" id="check" type="checkbox" (click)="updateRecurring()" [(ngModel)]="sampleEvent.recurrence.isRecurring">
+      </div>
+    <!-- Checkbox: all day? -->
+    <!-- Checkbox: recurring? -->
+    <!-- if recurring: number input for frequency, date choice for "repeats until"-->
+  </div>
+  <div class="row" *ngIf='isRecurring'>
+      <div class="col">
+        <label for="frequency">Frequency</label>
+        <select id="frequency" class="interact" [(ngModel)]="sampleEvent.recurrence.frequency">
+            <option value='weekly'>Weekly</option>
+            <option value='biweekly'>Biweekly</option>
+            <option value='monthly'>Monthly</option>
+        </select>
+      </div>
+  </div>
+  <div class="row" *ngIf="isRecurring">
+    <div class="col">
+      <label for="quant">Number of Events</label>
+      <input class="interact quant" id="quant" type="number" [(ngModel)]="sampleEvent.recurrence.repeat">
+    </div>
+  </div>
+
+  <br />
+  <button (click)="passBack()" type="submit" class="btn btn-primary w-100">
+    Submit
+  </button>
+</div>

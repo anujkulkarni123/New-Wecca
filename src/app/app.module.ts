@@ -17,6 +17,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbAlertModule, NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -44,12 +45,13 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 // 
 
 imports: [
     BrowserModule,
     AppRoutingModule,
-    
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
@@ -63,9 +65,11 @@ imports: [
     ExecpageComponent,
     CalendarComponent,
     SponsorsComponent,
-    newPageComponent
+    newPageComponent,
+    ModalContentComponent
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
@@ -120,14 +124,15 @@ imports: [
     CommonModule,
     FormsModule,
     NgbModalModule,
-    FlatpickrModule.forRoot(),
+    FlatpickrModule.forRoot(), 
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [NgbActiveModal],
+  bootstrap: [AppComponent],
+  entryComponents: [ ModalContentComponent ]
 })
 export class AppModule { }
 
@@ -135,6 +140,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalContentComponent } from './modal-content/modal-content.component';
 
 /*
 @NgModule({

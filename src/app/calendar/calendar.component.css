@@ -1,16 +1,63 @@
 .cal-events {
-    display: none !important;
+  display: none !important;
 
-    /* display calendar.events.insert(); */
-
+  /* display calendar.events.insert(); */
 }
 
 .btn {
-    background-color: #420a83;
+  background-color: #420a83;
+  color: white;
 }
-.btn-outline-secondary{
-    color: white;
+.btn-outline-secondary {
+  color: white;
 }
-.btn:hover{
-    background-color: #7945bd;
+.btn:hover {
+  background-color: #7945bd;
+  color: white;
+}
+.btn-danger, .btn-primary{
+  border-color: #7945bd;
+}
+.btn-danger:hover, .btn-primary:hover {
+  border-color: #7945bd;
+  color: white;
+}
+pre{
+  font-family: "Lato", sans-serif;
+  font-size: max(2vh, 1.2vw);
+}
+
+.paginator {
+  font-size: 20px;
+  color: black;
+}
+
+.paginator::ng-deep .ngx-pagination .current {
+  background-color: #7945bd;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #a0a0a0;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.input {
+  display:inline-block;
+  background-color: rgb(185, 185, 185);
 }
