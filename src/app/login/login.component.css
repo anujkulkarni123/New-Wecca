@@ -1,0 +1,34 @@
+button {
+	margin-top: 10px;
+	background-color: transparent;
+	color: black;
+	border: 1px solid black;
+	padding: 4px 16px;
+	transition: 0.4s;
+	width: 100%;
+	margin-top: 10px;
+}
+button:hover:enabled{
+	color: white;
+	background-color: #420a83;
+}
+form.contact {
+	display: flex;
+	flex-direction: column;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+}
+input,
+button {
+	margin-bottom: 10px;
+}
+.contactform{
+	width: 80%;
+}
+.hidden {
+	display: none
+}
+html{
+    font-size: smaller;
+}

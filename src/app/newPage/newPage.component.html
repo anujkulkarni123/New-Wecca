@@ -1,83 +1,85 @@
 <html>
-  <div id="new-page">
-    <h1 id="title">Western Engineering Concrete Canoe Association</h1>
-    <h1 id="sub">Hello World</h1>
-    <div class='text-center'>Let's make this the Teams Page with spotlights and info for each sub-team</div>
-  </div>
+	<div id="new-page">
+		<h1 id="title">Western Engineering Concrete Canoe Association</h1>
+		<h1 id="sub">Hello World</h1>
+		<div class="text-center">
+			Let's make this the Teams Page with spotlights and info for each sub-team
+		</div>
+	</div>
 
-  <br><br><br>
-  <div class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="col-md-5 col-sm-8 col-xs-10">
-        <form
-          class="contact"
-          [formGroup]="form"
-          method="post"
-          (ngSubmit)="onSubmit()"
-        >
-          <h2 class="text-center">Testing Contact Form</h2>
-          <mat-form-field style="width: 100%">
-            <mat-label>Name</mat-label>
-            <input matInput [formControl]="name" required />
-            <mat-error *ngIf="name.invalid" style="font-family: 'Open Sans'"
-              >Please enter your name</mat-error
-            >
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input
-              matInput
-              [formControl]="email"
-              placeholder="email@example.com"
-              required
-            />
-            <mat-error *ngIf="email.invalid"
-              >Please enter a valid email address</mat-error
-            >
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Subject</mat-label>
-            <input matInput [formControl]="subject" required />
-            <mat-error *ngIf="subject.invalid"
-              >Please enter a subject</mat-error
-            >
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Message</mat-label>
-            <textarea
-              matInput
-              [formControl]="message"
-              maxlength="1200"
-              placeholder="Your Message Here"
-              required
-              style="height: 12vmin"
-            ></textarea>
-            <mat-hint [align]="'end'">
-              {{ message.value?.length || 0 }}/1200</mat-hint
-            >
-            <mat-error *ngIf="message.invalid"
-              >Please enter a message</mat-error
-            >
-          </mat-form-field>
-          <button
-            [disabled]="isLoading"
-            class="submit"
-            type="submit"
-            style="width: 50%; align-self: center"
-          >
-            Submit
-          </button>
-          <input [formControl]="honeypot" class="hidden" type="text" />
-          <div
-            [ngClass]="!submitted ? 'hidden' : 'visible'"
-            class="center-text text-center"
-            style="font-style: italic"
-          >
-            <span>{{ responseMessage }}</span>
-          </div>
-          <br />
-        </form>
-      </div>
-    </div>
-  </div>
+	<br /><br /><br />
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-md-5 col-sm-8 col-xs-10">
+				<form
+					class="contact"
+					[formGroup]="form"
+					method="post"
+					(ngSubmit)="onSubmit()"
+				>
+					<h2 class="text-center">Testing Contact Form</h2>
+					<mat-form-field style="width: 100%">
+						<mat-label>Name</mat-label>
+						<input matInput [formControl]="name" required />
+						<mat-error *ngIf="name.invalid" style="font-family: 'Open Sans'"
+							>Please enter your name</mat-error
+						>
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Email</mat-label>
+						<input
+							matInput
+							[formControl]="email"
+							placeholder="email@example.com"
+							required
+						/>
+						<mat-error *ngIf="email.invalid"
+							>Please enter a valid email address</mat-error
+						>
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Subject</mat-label>
+						<input matInput [formControl]="subject" required />
+						<mat-error *ngIf="subject.invalid"
+							>Please enter a subject</mat-error
+						>
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Message</mat-label>
+						<textarea
+							matInput
+							[formControl]="message"
+							maxlength="1200"
+							placeholder="Your Message Here"
+							required
+							style="height: 12vmin"
+						></textarea>
+						<mat-hint [align]="'end'">
+							{{ message.value?.length || 0 }}/1200</mat-hint
+						>
+						<mat-error *ngIf="message.invalid"
+							>Please enter a message</mat-error
+						>
+					</mat-form-field>
+					<button
+						[disabled]="isLoading"
+						class="submit"
+						type="submit"
+						style="width: 50%; align-self: center"
+					>
+						Submit
+					</button>
+					<input [formControl]="honeypot" class="hidden" type="text" />
+					<div
+						[ngClass]="!submitted ? 'hidden' : 'visible'"
+						class="center-text text-center"
+						style="font-style: italic"
+					>
+						<span>{{ responseMessage }}</span>
+					</div>
+					<br />
+				</form>
+			</div>
+		</div>
+	</div>
 </html>

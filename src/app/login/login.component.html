@@ -1,0 +1,74 @@
+<html>
+	<div id="about-panel" class="padding mt-5">
+		<div class="container vertical-center horizontal-center">
+			<div class="row">
+				<div class="col-4 vertical-center horizontal-center">
+					<h1 data-aos="fade-right" data-aos-duration="1000">Log In:</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Login Form starting -->
+	<br /><br /><br />
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-md-5 col-sm-8 col-xs-10">
+				<form
+					class="contact"
+					[formGroup]="form"
+					method="post"
+					(ngSubmit)="onSubmit()"
+				>
+					<mat-form-field>
+						<mat-label>Email</mat-label>
+						<input
+							matInput
+							[formControl]="email"
+							placeholder="email@example.com"
+							required
+						/>
+						<mat-error *ngIf="email.invalid"
+							>Please enter a valid email address</mat-error
+						>
+					</mat-form-field>
+
+					<mat-form-field>
+						<mat-label>Password</mat-label>
+						<input
+							matInput
+							placeholder="Password"
+							[type]="!hide ? 'password' : 'text'"
+							[formControl]="password"
+							required
+						/>
+						<mat-icon matSuffix (click)="hide = !hide">{{
+							hide ? "visibility_off" : "visibility"
+						}}</mat-icon>
+						<mat-error *ngIf="email.invalid"
+							>Please enter your password</mat-error
+						>
+					</mat-form-field>
+
+					<button
+						[disabled]="isLoading"
+						class="submit"
+						type="submit"
+						style="width: 50%; align-self: center"
+					>
+						Submit
+					</button>
+					<input [formControl]="honeypot" class="hidden" type="text" />
+					<div
+						[ngClass]="!submitted ? 'hidden' : 'visible'"
+						class="center-text text-center"
+						style="font-style: italic"
+					>
+						<span>{{ responseMessage }}</span>
+					</div>
+					<br />
+				</form>
+			</div>
+		</div>
+	</div>
+</html>
