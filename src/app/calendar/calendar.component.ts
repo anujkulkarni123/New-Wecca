@@ -33,7 +33,6 @@ import {
   endOfMonth,
 } from "date-fns";
 import { HttpClient } from "@angular/common/http";
-const KEYS = require("./secret.ts");
 import { CustomEventTitleFormatter } from "./custom-event-title-formatter.provider";
 import { Subject } from "rxjs";
 import { ModalContentComponent } from "../modal-content/modal-content.component";
