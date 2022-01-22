@@ -8,7 +8,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ExecpageComponent } from './execpage/execpage.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { SponsorsComponent } from './sponsors/sponsors.component';
-import { newPageComponent } from './newPage/newPage.component';
+import { teamsComponent } from './teams/teams.component';
 
 
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from  '@angular/material';
@@ -65,7 +65,7 @@ imports: [
     ExecpageComponent,
     CalendarComponent,
     SponsorsComponent,
-    newPageComponent,
+    teamsComponent,
     ModalContentComponent,
     LoginComponent
   ],

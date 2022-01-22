@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-    selector: 'app-newPage',
-    templateUrl: './newPage.component.html',
-    styleUrls: ['./newPage.component.css']
+    selector: 'app-teams',
+    templateUrl: './teams.component.html',
+    styleUrls: ['./teams.component.css']
   })
-  export class newPageComponent implements OnInit {
+  export class teamsComponent implements OnInit {
 
     form: FormGroup;
 	name: FormControl = new FormControl("");
