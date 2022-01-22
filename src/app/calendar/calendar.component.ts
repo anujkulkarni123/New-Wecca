@@ -148,13 +148,30 @@ export class CalendarComponent implements OnInit {
       draggable: true,
       meta: "",
       allDay: false,
+      id: null,
     },
     recurrence: {
       isRecurring: false,
       frequency: null,
       repeat: null
-    }
+    },
+    team: null,
   };
+
+  searchThis(data) {
+    let content = this.calendarEvents;
+    console.log(data)
+    if (data) {
+      content = content.filter(function (ele, i, array) {
+        let arrayelement = ele.title.toLowerCase()
+        return arrayelement.includes(data)
+      })
+    }
+    else {
+      console.log(content)
+    }
+    console.log(content)
+  }
 
   calendarEvents: CalendarEvent[] = [
     {
@@ -168,6 +185,7 @@ export class CalendarComponent implements OnInit {
         afterEnd: true,
       },
       draggable: true,
+      id: 1,
       meta: "This is the comment for a general meeting. Here is the location ________.",
     },
     {
@@ -180,6 +198,7 @@ export class CalendarComponent implements OnInit {
         beforeStart: true,
         afterEnd: true,
       },
+      id: 2,
       draggable: true,
     },
     {
@@ -192,6 +211,7 @@ export class CalendarComponent implements OnInit {
         beforeStart: true,
         afterEnd: true,
       },
+      id: 3,
       draggable: true,
     },
     {
@@ -204,6 +224,7 @@ export class CalendarComponent implements OnInit {
         beforeStart: true,
         afterEnd: true,
       },
+      id: 4,
       draggable: true,
     },
     {
@@ -216,6 +237,7 @@ export class CalendarComponent implements OnInit {
         beforeStart: true,
         afterEnd: true,
       },
+      id: 5,
       draggable: true,
     },
     {
@@ -228,6 +250,7 @@ export class CalendarComponent implements OnInit {
         beforeStart: true,
         afterEnd: true,
       },
+      id: 6,
       draggable: true,
     },
     {
@@ -240,6 +263,7 @@ export class CalendarComponent implements OnInit {
         beforeStart: true,
         afterEnd: true,
       },
+      id: 7,
       draggable: true,
     },
     {
@@ -252,6 +276,7 @@ export class CalendarComponent implements OnInit {
         beforeStart: true,
         afterEnd: true,
       },
+      id: 8,
       draggable: true,
     },
     {
@@ -264,6 +289,7 @@ export class CalendarComponent implements OnInit {
         beforeStart: true,
         afterEnd: true,
       },
+      id: 9,
       draggable: true,
     },
     {
@@ -276,6 +302,7 @@ export class CalendarComponent implements OnInit {
         beforeStart: true,
         afterEnd: true,
       },
+      id: 10,
       draggable: true,
     },
   ];
@@ -298,7 +325,7 @@ export class CalendarComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    
+    this.searchThis("general");
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
@@ -379,7 +406,8 @@ export class CalendarComponent implements OnInit {
         isRecurring: false,
         frequency: null,
         repeat: null
-      }
+      },
+      team: null,
     };
   }
 
@@ -436,8 +464,33 @@ export class CalendarComponent implements OnInit {
     event.end = newEnd;
     this.refresh.next();
   }
+}
 
-  /*
+interface inputData {
+  calendarData : CalendarEvent,
+  recurrence : recur,
+  team : string
+}
+
+interface recur {
+  isRecurring: boolean,
+  frequency: String,
+  repeat: number
+}
+
+// interface MyEvent extends CalendarEvent {
+//   foo: string;
+// }
+
+// events: MyEvent[] = [{
+//   title: 'title',
+//   start: startOfDay(new Date()),
+//   //color: {primary: '', secondary: ''},
+//   //foo: 'bar'
+// }]
+
+
+/*
   ngOnInit() {
 
     this.fillEvents("general");
@@ -560,26 +613,3 @@ export class CalendarComponent implements OnInit {
       .then((data: any) => data.items);
   }
   */
-}
-
-interface inputData {
-  calendarData : CalendarEvent,
-  recurrence : recur
-}
-
-interface recur {
-  isRecurring: boolean,
-  frequency: String,
-  repeat: number
-}
-
-// interface MyEvent extends CalendarEvent {
-//   foo: string;
-// }
-
-// events: MyEvent[] = [{
-//   title: 'title',
-//   start: startOfDay(new Date()),
-//   //color: {primary: '', secondary: ''},
-//   //foo: 'bar'
-// }]

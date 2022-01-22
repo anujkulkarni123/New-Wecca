@@ -1,83 +1,121 @@
 button {
-    background-color: #ffffff;
-    border-color: rgb(138, 43, 226);
-    border-radius:14px;
-    color:  rgb(138, 43, 226);
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    margin-left: 45%;
-    margin-right:40%;
+  background-color: #ffffff;
+  border-color: rgb(138, 43, 226);
+  border-radius: 14px;
+  color: rgb(138, 43, 226);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-left: 45%;
+  margin-right: 40%;
 }
-h2{
-    border: none;
-    color: black;
-    text-align: center;
+h2 {
+  border: none;
+  color: black;
+  text-align: center;
 }
 
-li{
-    font-size: 3vmin;
-    margin-top: 0vmin;
-    margin-bottom: 2vmin;
+li {
+  font-size: 3vmin;
+  margin-top: 0vmin;
+  margin-bottom: 2vmin;
 }
-ul{
-    display: inline;
-    text-align: center;
-    margin-top: -1vmin; 
-    margin-bottom: -1vmin;
-} 
-.wecca-members{
-    display: block;
-    width: 600px;
-    height: 400px;
-    margin-left: auto;
-    margin-right: auto;
+ul {
+  display: inline;
+  text-align: center;
+  margin-top: -1vmin;
+  margin-bottom: -1vmin;
+}
+.wecca-members {
+  display: block;
+  width: 600px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .titles {
-    display: block;
-    text-align: center;
-    justify-content: center;
-    margin: 0 auto;
-    margin-bottom: 0vmin;
-    font-weight: bold;
-    font-size: 4vmin;
-  }
-hr{
-    width:70%;
-    height: 1px;
-    color:rgb(138, 43, 226); 
-    background-color: rgb(138, 43, 226);
-    margin-top: 5vmin;
-    margin-bottom: 5vmin;
+  display: block;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 0vmin;
+  font-weight: bold;
+  font-size: 4vmin;
+}
+hr {
+  width: 70%;
+  height: 1px;
+  color: rgb(138, 43, 226);
+  background-color: rgb(138, 43, 226);
+  margin-top: 5vmin;
+  margin-bottom: 5vmin;
 }
 
 /* Style all font awesome icons */
-.vertical-center  {
-    
+.vertical-center {
 }
 
 .fa {
-    position: relative;
-    margin-left: 200px;
-    padding: 20px;
-    font-size: 40px;
-    width: 75px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 45%;
-  }
-  
-  /* Add a hover effect if you want */
-  .fa:hover {
-    opacity: 0.7;
-    color: rgb(82, 66, 139);
-  }
+  position: relative;
+  margin-left: 200px;
+  padding: 20px;
+  font-size: 40px;
+  width: 75px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 45%;
+}
 
-  
-  /* Set a specific color for each brand */
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+  color: rgb(82, 66, 139);
+}
 
-
+.btn {
+  margin-top: 10px;
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+  padding: 4px 16px;
+  transition: 0.4s;
+  width: 100%;
+  margin-top: 10px;
+}
+button:hover:enabled {
+  color: white;
+  background-color: #420a83;
+}
+form.contact {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+input,
+button {
+  margin-bottom: 10px;
+}
+.contactform {
+  width: 80%;
+}
+.hidden {
+  display: none;
+}
+html {
+  font-size: smaller;
+}
+.subhead {
+  color: rgb(105, 105, 105);
+}
+.pad{
+    padding-top: 2px;
+}
+form{
+    font-size: smaller;
+}

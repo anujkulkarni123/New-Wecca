@@ -9,6 +9,8 @@
 
 	<br /><br /><br />
 	<div class="container-fluid">
+		<h2 class="text-center">Contact Form</h2>
+		<h5 class="text-center subhead">Please enter a name and email if you would like to hear back from us</h5>
 		<div class="row justify-content-center">
 			<div class="col-md-5 col-sm-8 col-xs-10">
 				<form
@@ -17,13 +19,9 @@
 					method="post"
 					(ngSubmit)="onSubmit()"
 				>
-					<h2 class="text-center">Testing Contact Form</h2>
 					<mat-form-field style="width: 100%">
 						<mat-label>Name</mat-label>
-						<input matInput [formControl]="name" required />
-						<mat-error *ngIf="name.invalid" style="font-family: 'Open Sans'"
-							>Please enter your name</mat-error
-						>
+						<input matInput [formControl]="name"/>
 					</mat-form-field>
 					<mat-form-field>
 						<mat-label>Email</mat-label>
@@ -31,10 +29,17 @@
 							matInput
 							[formControl]="email"
 							placeholder="email@example.com"
-							required
 						/>
-						<mat-error *ngIf="email.invalid"
-							>Please enter a valid email address</mat-error
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Role</mat-label>
+						<select matNativeControl [formControl]="role" required>
+							<option value="student">Student</option>
+							<option value="sponsor">Sponsor</option>
+							<option value="other">Other</option>
+						</select>
+						<mat-error *ngIf="role.invalid"
+							>Please select a role</mat-error
 						>
 					</mat-form-field>
 					<mat-form-field>
