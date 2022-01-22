@@ -32,10 +32,9 @@ button {
 html{
     font-size: smaller;
 }
-<<<<<<< HEAD:src/app/newPage/newPage.component.css
 .subhead {
 	color: rgb(105, 105, 105);
-=======
+}
 .img {
 	height: 50vh;
 }
@@ -54,5 +53,4 @@ html{
 .team-box-right {
 	flex: 1;
 	text-align: left;
->>>>>>> teams-page:src/app/teams/teams.component.css
 }
