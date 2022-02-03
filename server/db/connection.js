@@ -1,7 +1,8 @@
+require('dotenv').config(); // import the environment variables
 const { MongoClient } = require('mongodb');
 
 // variables for creating the db connection
-const connectionString = 'mongodb://localhost:27017/';
+const connectionString = process.env.MONGO_URL;
 
 // create the client
 const client = new MongoClient(connectionString, {
