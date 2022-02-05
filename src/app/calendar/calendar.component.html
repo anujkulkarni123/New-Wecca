@@ -8,7 +8,15 @@
 </mwl-calendar-day-view>
 
 -->
-<div>
+
+<br /><br /><br />
+<div class="container">
+  <div class="row justify-content-center">
+    <button class="btn btn-success" (click)="deleteAll()">Clear Events</button>
+  </div>
+</div>
+
+<div *ngIf="dataIsAvailable">
   <!-- *ngIf="dataIsAvailable" -->
   <h1 class="center-sub" style="padding-top: 80px">WECCA Calendar</h1>
 
@@ -117,8 +125,8 @@
     </div>
   </div>
   <br />
-  
-  <hr>
+
+  <hr />
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col text-center">
@@ -138,9 +146,7 @@
   </div>
 
   <div class="row">
-    <div class="col text-center">
-      
-    </div>
+    <div class="col text-center"></div>
   </div>
 
   <div class="container-fluid">
@@ -155,7 +161,6 @@
                 <th>Ends at</th>
                 <th>Comments/Description</th>
                 <th>Submit Changes</th>
-                <th>Remove</th>
               </tr>
             </thead>
 
@@ -215,11 +220,9 @@
                   />
                 </td>
                 <td>
-                  <button class="btn" (click)="submitChanges(event)">
+                  <button class="btn" (click)="updateEvent(event)" style="margin-right: 10px">
                     Submit
                   </button>
-                </td>
-                <td>
                   <button class="btn btn-danger" (click)="deleteEvent(event)">
                     Delete
                   </button>
@@ -263,20 +266,26 @@
   </div>
 </ng-template>
 -->
-
+<div class="container">
+  <div class="row justify-content-center">
+    <p class="message">{{ message }}<br></p>
+  </div>
+</div>
 <ng-template #modalContent let-close="close">
   <div class="modal-header">
-    <h5 class="modal-title">Event Details</h5>
+    <h5 class="modal-title">{{ modalData?.event.title }}</h5>
     <button type="button" class="close" (click)="close()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
     <div>
-      <pre
-        >{{ modalData?.event.title }}  {{ "\n" }} {{ modalData?.event.start
-        }}{{ " to" }} {{ modalData?.event.end }}
-        {{ "\n" }} {{ modalData?.event.meta }}</pre
+      <p>
+        Start: {{ localeStart }}
+        <br>
+        End: {{ localeEnd }}
+        <br>
+        Decription: {{ modalData?.event.meta ? modalData?.event.meta : "None" }}</p
       >
     </div>
   </div>

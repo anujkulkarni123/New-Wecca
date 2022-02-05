@@ -47,6 +47,7 @@ pre{
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  font-family: "Lato", sans-serif;
 }
 
 .modal-content {
@@ -60,4 +61,8 @@ pre{
 .input {
   display:inline-block;
   background-color: rgb(185, 185, 185);
+}
+.message {
+  font-style: italic; 
+  font-size: large;
 }
