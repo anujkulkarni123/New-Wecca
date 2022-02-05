@@ -176,7 +176,6 @@ export class CalendarComponent implements OnInit {
 
   searchThis(data) {
     let content = this.calendarEvents;
-    console.log(data);
     if (data) {
       content = content.filter(function (ele, i, array) {
         let arrayelement = ele.title.toLowerCase();
@@ -197,8 +196,8 @@ export class CalendarComponent implements OnInit {
           element.end = new Date(element.end);
         });
         this.calendarEvents = [...this.calendarEvents, ...this.events];
+        this.sortEvents();
         this.dataIsAvailable = true;
-        console.log(this.calendarEvents);
         console.log(data);
       },
       (error) => {
@@ -230,13 +229,12 @@ export class CalendarComponent implements OnInit {
       color: this.event.calendarData.color,
     };
 
-    console.log(this.event.calendarData.start);
-
     this.eventService.create(data).subscribe(
       (response) => {
         response.start = new Date(response.start);
         response.end = new Date(response.end);
         this.calendarEvents = [...this.calendarEvents, response];
+        this.sortEvents();
       },
       (error) => {
         console.log(error);
@@ -250,6 +248,7 @@ export class CalendarComponent implements OnInit {
         response => {
           const timeout = 3000;
           console.log(response);
+          this.sortEvents();
           this.message = 'The event was updated successfully!';
           setTimeout(() => this.message = '', timeout );
         },
@@ -273,10 +272,29 @@ export class CalendarComponent implements OnInit {
     );
   }
 
-  deletePrev(eventToDelete: CalendarEvent) {
-    this.calendarEvents = this.calendarEvents.filter(
-      (event) => event !== eventToDelete
-    );
+  searchTitle(title): void {
+    if(title == undefined) this.calendarEvents = this.allEvents;
+    this.eventService.findByTitle(title)
+      .subscribe(
+        data => {
+          data.forEach((element) => {
+            element.start = new Date(element.start);
+            element.end = new Date(element.end);
+          });
+          this.calendarEvents = data;
+          this.sortEvents();
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+    console.log(this.calendarEvents);
+  }
+
+  sortEvents(): void {
+    this.calendarEvents.sort((a: CalendarEvent, b: CalendarEvent) => {
+      return b.start.getTime() - a.start.getTime();
+    })
   }
 
   calendarEvents: CalendarEvent[] = [
@@ -412,6 +430,7 @@ export class CalendarComponent implements OnInit {
       draggable: true,
     },
   ];
+  allEvents: CalendarEvent[] = this.calendarEvents;
 
   refresh = new Subject<void>();
 
@@ -431,12 +450,13 @@ export class CalendarComponent implements OnInit {
     public eventService: EventService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   ngOnInit() {
     //this.searchThis("general");
     this.getEvents();
-    console.log(this.calendarEvents);
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
@@ -563,11 +583,6 @@ export class CalendarComponent implements OnInit {
         },
       },
     ];
-  }
-
-  submitChanges(eventToSubmit: CalendarEvent) {
-    console.log(eventToSubmit);
-    //Push to database!
   }
 
   eventTimesChanged({

@@ -9,12 +9,8 @@
 
 -->
 
-<br /><br /><br />
-<div class="container">
-  <div class="row justify-content-center">
-    <button class="btn btn-success" (click)="deleteAll()">Clear Events</button>
-  </div>
-</div>
+<br /><br />
+
 
 <div *ngIf="dataIsAvailable">
   <!-- *ngIf="dataIsAvailable" -->
@@ -145,22 +141,46 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col text-center"></div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Filter by title"
+          [(ngModel)]="title"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchTitle(title)"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="container-fluid">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" *ngIf='calendarEvents.length == 0'>
+      <div class="col text-center">
+        <p style='font-style: italic;'>No events found</p>
+      </div>
+    </div>
+    <div class="row justify-content-center" *ngIf='calendarEvents.length>0'>
       <div class="col-11 text-center">
         <div class="table-responsive">
           <table class="table table-bordered">
             <thead>
               <tr>
+                <th></th>
                 <th>Title</th>
                 <th>Starts at</th>
                 <th>Ends at</th>
                 <th>Comments/Description</th>
-                <th>Submit Changes</th>
+                <th></th>
               </tr>
             </thead>
 
@@ -168,10 +188,14 @@
               <tr
                 *ngFor="
                   let event of calendarEvents
-                    | paginate: { itemsPerPage: 5, currentPage: p };
                   let i = index
                 "
-              >
+              > <!-- inside ngFor: | paginate: { itemsPerPage: 5, currentPage: p }; -->
+                <td>
+                  <button class="btn btn-danger" (click)="deleteEvent(event)">
+                    Delete
+                  </button>
+                </td>
                 <td>
                   <input
                     type="text"
@@ -220,11 +244,8 @@
                   />
                 </td>
                 <td>
-                  <button class="btn" (click)="updateEvent(event)" style="margin-right: 10px">
+                  <button class="btn" (click)="updateEvent(event)">
                     Submit
-                  </button>
-                  <button class="btn btn-danger" (click)="deleteEvent(event)">
-                    Delete
                   </button>
                 </td>
               </tr>
@@ -232,12 +253,14 @@
           </table>
         </div>
 
+        <!--
         <div class="paginator">
           <pagination-controls
             class="paginator"
             (pageChange)="p = $event"
           ></pagination-controls>
         </div>
+      -->
       </div>
     </div>
   </div>

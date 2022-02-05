@@ -15,8 +15,17 @@
   background-color: #7945bd;
   color: white;
 }
-.btn-danger, .btn-primary{
+.btn-primary{
   border-color: #7945bd;
+}
+.btn-danger{
+  border-color: rgb(158, 28, 28);
+  background-color: rgb(209, 73, 73);
+}
+.btn-danger:hover {
+  border-color: rgb(158, 28, 28);
+  background-color: red;
+  color: white;
 }
 .btn-danger:hover, .btn-primary:hover {
   border-color: #7945bd;
