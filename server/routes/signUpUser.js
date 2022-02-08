@@ -44,7 +44,8 @@ router.post('/', (req, res) => {
                             email: req.body.email,
                             password: password,
                             firstName: req.body.firstName,
-                            lastName: req.body.lastName
+                            lastName: req.body.lastName,
+                            role: req.body.role
                         }
 
                         // insert the new user
