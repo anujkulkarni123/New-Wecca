@@ -4,7 +4,11 @@ const router = express.Router();
 // import database items
 const { connection } = require('../db');
 
+// import hashing util
+const { comparePwd } = require('../util');
+
 // middleware to parse post body
+router.use(express.json());
 router.use(express.urlencoded({
     extended: true
 }));
@@ -15,18 +19,26 @@ router.post('/', (req, res) => {
         if (err)
             res.json({success: false, message: err.message});
 
-        // code for testing purposes
+        // fetch data from the db for the email given
         connection.getDB()
             .collection('users')
-            .find({}).limit(1)
-            .toArray((err, results) => {
+            .findOne({ "email": req.body["email"] }, (err, result) => {
                 if (err)
                     res.json({success: false, message: err.message});
 
-                if (req.body["email"] === results[0]["email"] && req.body["password"] === results[0]["password"])
-                    res.json({success: true, message: "Login Successful"});
-                else
-                    res.json({ success: false, message: "Login Unsuccessful!" })
+                // compare the user input with the password from the database
+                comparePwd(req.body["password"], result.password, (err, isMatch) => {
+                    // send the error message in case an err was sent
+                    if (err)
+                        res.json({ success: false, message: err.message });
+
+                    // check and send appropriate response based on the isMatch value
+                    if (isMatch)
+                        res.json({success: true, message: "Login Successful"});
+                    else
+                        res.json({ success: false, message: "Login Unsuccessful! Please enter valid credentials." })
+                });
+
             });
     });
 });
