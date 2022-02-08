@@ -15,7 +15,7 @@ router.use(express.urlencoded({
 
 // route to login user
 router.post('/', (req, res) => {
-    connection.connectToServer("sample", (err) => {
+    connection.connectToServer((err) => {
         if (err)
             res.json({success: false, message: err.message});
 

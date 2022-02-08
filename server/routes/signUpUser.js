@@ -15,7 +15,7 @@ router.use(express.urlencoded({
 
 // router for signing up a user
 router.post('/', (req, res) => {
-    connection.connectToServer("sample", (err) => {
+    connection.connectToServer((err) => {
         if (err)
             res.json({success: false, message: err.message});
 

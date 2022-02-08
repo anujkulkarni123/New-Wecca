@@ -3,6 +3,7 @@ const { MongoClient } = require('mongodb');
 
 // variables for creating the db connection
 const connectionString = process.env.MONGO_URL;
+const database = process.env.MONGO_DB;
 
 // create the client
 const client = new MongoClient(connectionString, {
@@ -14,7 +15,7 @@ const client = new MongoClient(connectionString, {
 let dbConnection;
 
 // function to connect to the mongodb server
-function connectToServer(database, callBack) {
+function connectToServer(callBack) {
     client.connect((err, db) => {
         if (err || !db)
             return callBack(err);
