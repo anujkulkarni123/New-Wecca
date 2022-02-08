@@ -20,7 +20,7 @@ function comparePwd(plainPwd, hashedPwd, callback) {
     // call the compare function from bcrypt to compare it to the user input
     bcrypt.compare(plainPwd, hashedPwd, (err, isMatch) => {
         // return the callback with or without the err to determine if the compare succeeded
-        return err === null ? callback(null, isMatch) : callback(err);
+        return err == null ? callback(null, isMatch) : callback(err);
     });
 }
 

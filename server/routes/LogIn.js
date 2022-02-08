@@ -22,12 +22,13 @@ router.post('/', (req, res) => {
         // fetch data from the db for the email given
         connection.getDB()
             .collection('users')
-            .findOne({ "email": req.body["email"] }, (err, result) => {
+            .find({ "email": req.body["email"] }).limit(1)
+            .toArray((err, results) => {
                 if (err)
                     res.json({success: false, message: err.message});
 
                 // compare the user input with the password from the database
-                comparePwd(req.body["password"], result.password, (err, isMatch) => {
+                comparePwd(req.body["password"], results[0].password, (err, isMatch) => {
                     // send the error message in case an err was sent
                     if (err)
                         res.json({ success: false, message: err.message });
