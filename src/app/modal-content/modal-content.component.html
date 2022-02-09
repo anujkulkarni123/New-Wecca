@@ -16,7 +16,7 @@
       <input
         style="width: 100%; border: 1px solid rgb(221, 221, 221)"
         class="text-input"
-        [(ngModel)]="sampleEvent.calendarData.title"
+        [(ngModel)]="event.calendarData.title"
         type="text"
         class="text-center"
         mdbInput
@@ -31,7 +31,7 @@
       <input
         style="width: 100%; border: 1px solid rgb(221, 221, 221)"
         class="text-input"
-        [(ngModel)]="sampleEvent.calendarData.meta"
+        [(ngModel)]="event.calendarData.meta"
         type="text"
         class="text-center"
         mdbInput
@@ -47,7 +47,7 @@
         class="form-control text-center"
         type="text"
         mwlFlatpickr
-        [(ngModel)]="sampleEvent.calendarData.start"
+        [(ngModel)]="event.calendarData.start"
         [altInput]="true"
         [convertModelValue]="true"
         [enableTime]="true"
@@ -62,7 +62,7 @@
         class="form-control text-center"
         type="text"
         mwlFlatpickr
-        [(ngModel)]="sampleEvent.calendarData.end"
+        [(ngModel)]="event.calendarData.end"
         [altInput]="true"
         [convertModelValue]="true"
         [enableTime]="true"
@@ -77,7 +77,7 @@
   <div class="row justify-content-center">
       <div class="col">
           <label for="check">Recurring?</label>
-          <input class="interact" id="check" type="checkbox" (click)="updateRecurring()" [(ngModel)]="sampleEvent.recurrence.isRecurring">
+          <input class="interact" id="check" type="checkbox" (click)="updateRecurring()" [(ngModel)]="event.recurrence.isRecurring">
       </div>
     <!-- Checkbox: all day? -->
     <!-- Checkbox: recurring? -->
@@ -86,7 +86,7 @@
   <div class="row" *ngIf='isRecurring'>
       <div class="col">
         <label for="frequency">Frequency</label>
-        <select id="frequency" class="interact" [(ngModel)]="sampleEvent.recurrence.frequency">
+        <select id="frequency" class="interact" [(ngModel)]="event.recurrence.frequency">
             <option value='weekly'>Weekly</option>
             <option value='biweekly'>Biweekly</option>
             <option value='monthly'>Monthly</option>
@@ -96,7 +96,7 @@
   <div class="row" *ngIf="isRecurring">
     <div class="col">
       <label for="quant">Number of Events</label>
-      <input class="interact quant" id="quant" type="number" [(ngModel)]="sampleEvent.recurrence.repeat">
+      <input class="interact quant" id="quant" type="number" [(ngModel)]="event.recurrence.repeat">
     </div>
   </div>
 

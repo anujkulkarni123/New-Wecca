@@ -10,7 +10,7 @@ export class ModalContentComponent implements OnInit {
 
   constructor(public modalService: NgbModal, public activeModal : NgbActiveModal) { }
 
-  @Input() public sampleEvent;
+  @Input() public event;
   public isRecurring : boolean;
 
   ngOnInit() {
@@ -18,7 +18,7 @@ export class ModalContentComponent implements OnInit {
   }
 
   passBack() {
-    this.activeModal.close(this.sampleEvent);
+    this.activeModal.close(this.event);
   }
 
   updateRecurring() {

@@ -8,7 +8,11 @@
 </mwl-calendar-day-view>
 
 -->
-<div>
+
+<br /><br />
+
+
+<div *ngIf="dataIsAvailable">
   <!-- *ngIf="dataIsAvailable" -->
   <h1 class="center-sub" style="padding-top: 80px">WECCA Calendar</h1>
 
@@ -117,8 +121,8 @@
     </div>
   </div>
   <br />
-  
-  <hr>
+
+  <hr />
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col text-center">
@@ -137,25 +141,46 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col text-center">
-      
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Filter by title"
+          [(ngModel)]="title"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchTitle(title)"
+          >
+            Search
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="container-fluid">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" *ngIf='calendarEvents.length == 0'>
+      <div class="col text-center">
+        <p style='font-style: italic;'>No events found</p>
+      </div>
+    </div>
+    <div class="row justify-content-center" *ngIf='calendarEvents.length>0'>
       <div class="col-11 text-center">
         <div class="table-responsive">
           <table class="table table-bordered">
             <thead>
               <tr>
+                <th></th>
                 <th>Title</th>
                 <th>Starts at</th>
                 <th>Ends at</th>
                 <th>Comments/Description</th>
-                <th>Submit Changes</th>
-                <th>Remove</th>
+                <th></th>
               </tr>
             </thead>
 
@@ -163,10 +188,14 @@
               <tr
                 *ngFor="
                   let event of calendarEvents
-                    | paginate: { itemsPerPage: 5, currentPage: p };
                   let i = index
                 "
-              >
+              > <!-- inside ngFor: | paginate: { itemsPerPage: 5, currentPage: p }; -->
+                <td>
+                  <button class="btn btn-danger" (click)="deleteEvent(event)">
+                    Delete
+                  </button>
+                </td>
                 <td>
                   <input
                     type="text"
@@ -215,13 +244,8 @@
                   />
                 </td>
                 <td>
-                  <button class="btn" (click)="submitChanges(event)">
+                  <button class="btn" (click)="updateEvent(event)">
                     Submit
-                  </button>
-                </td>
-                <td>
-                  <button class="btn btn-danger" (click)="deleteEvent(event)">
-                    Delete
                   </button>
                 </td>
               </tr>
@@ -229,12 +253,14 @@
           </table>
         </div>
 
+        <!--
         <div class="paginator">
           <pagination-controls
             class="paginator"
             (pageChange)="p = $event"
           ></pagination-controls>
         </div>
+      -->
       </div>
     </div>
   </div>
@@ -263,20 +289,26 @@
   </div>
 </ng-template>
 -->
-
+<div class="container">
+  <div class="row justify-content-center">
+    <p class="message">{{ message }}<br></p>
+  </div>
+</div>
 <ng-template #modalContent let-close="close">
   <div class="modal-header">
-    <h5 class="modal-title">Event Details</h5>
+    <h5 class="modal-title">{{ modalData?.event.title }}</h5>
     <button type="button" class="close" (click)="close()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
     <div>
-      <pre
-        >{{ modalData?.event.title }}  {{ "\n" }} {{ modalData?.event.start
-        }}{{ " to" }} {{ modalData?.event.end }}
-        {{ "\n" }} {{ modalData?.event.meta }}</pre
+      <p>
+        Start: {{ localeStart }}
+        <br>
+        End: {{ localeEnd }}
+        <br>
+        Decription: {{ modalData?.event.meta ? modalData?.event.meta : "None" }}</p
       >
     </div>
   </div>

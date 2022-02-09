@@ -1,13 +1,9 @@
 // import the routes
-const signUpUser = require('./signUpUser');
-const logInUser = require('./logInUser');
-const getEvents = require('./getEvents');
-const addEvent = require('./addEvent');
+const user = require('./user.routes');
+const events = require('./event.routes');
 
 // export the routes
 module.exports = {
-    signUpUser,
-    logInUser,
-    getEvents,
-    addEvent
+    user,
+    events
 };
