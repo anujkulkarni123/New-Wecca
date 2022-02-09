@@ -1,6 +1,6 @@
 // import the routes
 const signUpUser = require('./signUpUser');
-const logInUser = require('./LogIn');
+const logInUser = require('./logInUser');
 const getEvents = require('./getEvents');
 const addEvent = require('./addEvent');
 
