@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
         // validate the user inputs
         connection.getDB()
             .collection('users')
-            .find({ email: req.body["email"].toLowercase() }).limit(1)
+            .find({ email: req.body["email"].toString().toLowerCase() }).limit(1)
             .toArray((err, results) => {
                 // handle error
                 if (err) {
@@ -45,7 +45,7 @@ router.post('/', (req, res) => {
 
                         // create a js object using the new user details
                         const newUser = {
-                            email: req.body.email.toLowercase(),
+                            email: req.body.email.toString().toLowerCase(),
                             password: password,
                             firstName: req.body.firstName,
                             lastName: req.body.lastName,

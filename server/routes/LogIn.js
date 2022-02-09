@@ -22,23 +22,29 @@ router.post('/', (req, res) => {
         // fetch data from the db for the email given
         connection.getDB()
             .collection('users')
-            .find({ "email": req.body["email"] }).limit(1)
+            .find({ "email": req.body["email"].toString().toLowerCase() }).limit(1)
             .toArray((err, results) => {
-                if (err)
+                if (err) {
                     res.json({success: false, message: err.message});
+                    return;
+                }
 
-                // compare the user input with the password from the database
-                comparePwd(req.body["password"], results[0].password, (err, isMatch) => {
-                    // send the error message in case an err was sent
-                    if (err)
-                        res.json({ success: false, message: err.message });
+                if (results[0])
+                    comparePwd(req.body["password"], results[0].password, (err, isMatch) => { // compare the user input with the password from the database
+                        // send the error message in case an err was sent
+                        if (err) {
+                            res.json({ success: false, message: err.message });
+                            return;
+                        }
 
-                    // check and send appropriate response based on the isMatch value
-                    if (isMatch)
-                        res.json({success: true, message: "Login Successful"});
-                    else
-                        res.json({ success: false, message: "Login Unsuccessful! Please enter valid credentials." })
-                });
+                        // check and send appropriate response based on the isMatch value
+                        if (isMatch)
+                            res.json({success: true, message: "Login Successful"});
+                        else
+                            res.json({ success: false, message: "Invalid username and/or password!" })
+                    });
+                else
+                    res.send({ success: false, message: "Invalid username and/or password!" })
 
             });
     });
