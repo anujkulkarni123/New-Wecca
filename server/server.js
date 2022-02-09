@@ -6,7 +6,7 @@ const app = express();
  * update the index.js file in the routes folder to be able to import the route in the line below
 */
 // import the routes
-const { signUpUser, logInUser } = require('./routes');
+const { signUpUser, logInUser, addEvent, getEvents } = require('./routes');
 
 // constant variables for the server
 const PORT = 80;
@@ -15,6 +15,8 @@ const PORT = 80;
 app.get('/', (req, res) => { res.send('Server Working...') } ); // TODO --> remove before production (only for testing purposes)
 app.use('/signUp', signUpUser);
 app.use('/logIn', logInUser);
+app.use('/addEvent', addEvent);
+app.use('/getEvents', getEvents);
 
 // start the server
 app.listen(PORT, () => {

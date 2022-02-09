@@ -16,17 +16,21 @@ router.use(express.urlencoded({
 // router for signing up a user
 router.post('/', (req, res) => {
     connection.connectToServer((err) => {
-        if (err)
+        if (err) {
             res.json({success: false, message: err.message});
+            return;
+        }
 
         // validate the user inputs
         connection.getDB()
             .collection('users')
-            .find({email: req.body["email"]}).limit(1)
+            .find({ email: req.body["email"].toLowercase() }).limit(1)
             .toArray((err, results) => {
                 // handle error
-                if (err)
+                if (err) {
                     res.json({success: false, message: "UAE : An unexpected error occurred!"});
+                    return;
+                }
 
                 // handle email already exist
                 if (results[0])
@@ -41,20 +45,22 @@ router.post('/', (req, res) => {
 
                         // create a js object using the new user details
                         const newUser = {
-                            email: req.body.email,
+                            email: req.body.email.toLowercase(),
                             password: password,
                             firstName: req.body.firstName,
                             lastName: req.body.lastName,
                             role: req.body.role
-                        }
+                        };
 
-                        // insert the new user
+                        // insert the new user details
                         connection.getDB()
                             .collection('users')
                             .insertOne(newUser, (err, response) => {
                                 // error response
-                                if (err)
+                                if (err) {
                                     res.json({ success: false, message: "Unable to register user!" });
+                                    return;
+                                }
 
                                 // success response
                                 res.json({ success: true, message: "Successfully registered user!" });
