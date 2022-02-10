@@ -1,13 +1,13 @@
 module.exports = app => {
-    const user = require("../controllers/user.controller.js");
+    const { userController } = require("../controllers");
 
     var router = require("express").Router();
 
     // Create a new Event
-    router.post("/signUp", user.signUp);
+    router.post("/signUp", userController.signUp);
 
     // Retrieve all Events
-    router.post("/logIn", user.logIn);
+    router.post("/logIn", userController.logIn);
 
     // route for user
     app.use('/', router);

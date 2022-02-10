@@ -1,25 +1,25 @@
 module.exports = app => {
-    const events = require("../controllers/events.controller.js");
-  
+    const { eventController } = require("../controllers");
+
     var router = require("express").Router();
-  
+
     // Create a new Event
-    router.post("/", events.create);
-  
+    router.post("/", eventController.create);
+
     // Retrieve all Events
-    router.get("/", events.findAll);
-  
+    router.get("/", eventController.findAll);
+
     // Retrieve a single Event with id
-    router.get("/:id", events.findOne);
-  
+    router.get("/:id", eventController.findOne);
+
     // Update an Event with id
-    router.put("/:id", events.update);
-  
+    router.put("/:id", eventController.update);
+
     // Delete an Event with id
-    router.delete("/:id", events.delete);
-  
+    router.delete("/:id", eventController.delete);
+
     // Delete all Events
-    router.delete("/", events.deleteAll);
-  
+    router.delete("/", eventController.deleteAll);
+
     app.use('/api/events', router);
   };
