@@ -29,9 +29,9 @@ export class LoginComponent implements OnInit {
 	onSubmit() {
 		if (this.form.status == "VALID" && this.honeypot.value == "") {
 			this.form.disable(); // disable the form if it's valid to disable multiple submissions
-			var formData: any = new FormData();
-			formData.append("email", this.form.get("email").value);
-			formData.append("password", this.form.get("password").value);
+			// var formData: any = new FormData();
+			// formData.append("email", this.form.value["email"]);
+			// formData.append("password", this.form.value["password"]);
 			this.isLoading = true; // sending the post request async so it's in progress
 			this.submitted = false; // hide the response message on multiple submits
 			//
@@ -40,8 +40,11 @@ export class LoginComponent implements OnInit {
 			this.http
 				.post(
 					// This will need to be replaced with a DB verification step once a User DB is implemented
-					"https://script.google.com/macros/s/AKfycbwnlE8Im_JZ7Lth6OvxL5kOrie0LgORMOMhaDzKk_dVElBj29o/exec",
-					formData
+					// "https://script.google.com/macros/s/AKfycbwnlE8Im_JZ7Lth6OvxL5kOrie0LgORMOMhaDzKk_dVElBj29o/exec",
+					"http://localhost:8080/user/logIn",
+					// formData
+                    { email: this.form.value["email"], password: this.form.value["password"] }, // pass in the form data
+                    { withCredentials: true } // enable writing to cookies
 				)
 				.subscribe(
 					(response) => {

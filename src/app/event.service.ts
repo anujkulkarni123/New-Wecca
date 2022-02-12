@@ -24,7 +24,7 @@ export class EventService {
   }
 
   update(id, data): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, data);
+    return this.http.put(`${baseUrl}/${id}`, data, { withCredentials: true });
   }
 
   delete(id): Observable<any> {

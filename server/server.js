@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 // import express
 const app = express();
@@ -9,7 +10,8 @@ const { user, events } = require('./routes');
 
 // cors
 var corsOptions = {
-  origin: "http://localhost:4200"
+  origin: "http://localhost:4200",
+  credentials: true
 };
 
 app.use(cors(corsOptions));
@@ -19,6 +21,9 @@ app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
+
+// parse cookies from requests
+app.use(cookieParser());
 
 // connect to the db
 const db = require("./models");

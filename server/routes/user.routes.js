@@ -10,5 +10,5 @@ module.exports = app => {
     router.post("/logIn", userController.logIn);
 
     // route for user
-    app.use('/', router);
+    app.use('/user', router);
 };
