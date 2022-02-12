@@ -71,7 +71,7 @@ exports.create = (req, res) => {
     start: new Date(req.body.start),
     end: new Date(req.body.end),
     team: req.body.team,
-    allDay: req.body.allDay ? req.body.allDay : false, 
+    allDay: req.body.allDay ? req.body.allDay : false,
     color: colors.general
   });
 

@@ -1,10 +1,12 @@
+const { auth } = require('../util');
+
 module.exports = app => {
     const { eventController } = require("../controllers");
 
     var router = require("express").Router();
 
     // Create a new Event
-    router.post("/", eventController.create);
+    router.post("/", auth, eventController.create);
 
     // Retrieve all Events
     router.get("/", eventController.findAll);
@@ -13,13 +15,13 @@ module.exports = app => {
     router.get("/:id", eventController.findOne);
 
     // Update an Event with id
-    router.put("/:id", eventController.update);
+    router.put("/:id", auth, eventController.update);
 
     // Delete an Event with id
-    router.delete("/:id", eventController.delete);
+    router.delete("/:id", auth, eventController.delete);
 
     // Delete all Events
-    router.delete("/", eventController.deleteAll);
+    router.delete("/", auth, eventController.deleteAll);
 
     app.use('/api/events', router);
   };

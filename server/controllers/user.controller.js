@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const db = require("../models");
 const User = db.user;
 
@@ -7,16 +8,12 @@ const { encryptPwd, comparePwd } = require('../util');
 // Create and Save a new Event
 exports.signUp = (req, res) => {
   // Validate request
-  if (!req.body.email || !req.body.password || !req.body.role) {
-    res.status(400).send({ message: "Invalid Entries!" });
-    return;
-  }
+  if (!req.body.email || !req.body.password || !req.body.role)
+    return res.status(400).send({ message: "Invalid Entries!" });
 
   encryptPwd(req.body.password, (err, password) => {
-    if (err) {
-        res.status(500).send({success: false, message: "An unexpected error occurred!"});
-        return;
-    }
+    if (err)
+        return res.status(500).send({success: false, message: "An unexpected error occurred!"});
 
     // Create a User
     const user = new User({
@@ -29,23 +26,31 @@ exports.signUp = (req, res) => {
 
     User.find({email: req.body.email}).limit(1)
       .then((data) => {
-        if (data[0]) {
-          res.status(300).send({message: "Email already in use!"});
-          return;
-        }
+        if (data[0])
+          return res.status(300).send({message: "Email already in use!"});
 
       user.save(user)
         .then((data) => {
-          res.status(200).send({ message: "successfully created user!", data: data });
+          // handle error
+          jwt.sign({ user: { id: user.id } }, "randomWord", { expiresIn: 3600 }, (err, token) => {
+            if (err)
+              return res.status(400).send({success: false, message: err.message || "Unexpected Error Occurred!"});
+
+            res.status(200).send({
+              token: token,
+              success: true,
+              message: "successfully created user!",
+              data: data
+            });
+          });
         })
         .catch((err) => {
-          res.status(400).send({
-            message: err.message || "Unexpected Error Occurred!"
-          });
+          res.status(400).send({success: false, message: err.message || "Unexpected Error Occurred!"});
         });
       })
       .catch((err) => {
         res.status(400).send({
+          success: false,
           message: err.message || "Unexpected Error Occurred!"
         });
       });
@@ -59,14 +64,22 @@ exports.logIn = (req, res) => {
       if (data[0])
           comparePwd(req.body["password"], data[0].password, (err, isMatch) => { // compare the user input with the password from the database
               // send the error message in case an err was sent
-              if (err) {
-                  res.status(500).send({ success: false, message: err.message });
-                  return;
-              }
+              if (err)
+                  return res.status(500).send({ success: false, message: err.message });
 
               // check and send appropriate response based on the isMatch value
-              if (isMatch)
-                  res.status(200).send({success: true, message: "Login Successful"});
+              if (isMatch) {
+                jwt.sign({ user: { id: data[0].id } }, "randomWord", { expiresIn: 3600 }, (err, token) => {
+                  if (err)
+                    return res.status(400).send({success: false, message: err.message || "Unexpected Error Occurred!"});
+                  res.status(200).send({
+                    token: token,
+                    success: true,
+                    message: "Successfully logged in!",
+                    data: data
+                  });
+                });
+              }
               else
                   res.status(400).send({ success: false, message: "Invalid username and/or password!" })
           });
@@ -75,6 +88,7 @@ exports.logIn = (req, res) => {
     })
     .catch((err) => {
       res.status(400).send({
+        success: false,
         message: err.message || "Unexpected Error Occurred!"
       });
     });
